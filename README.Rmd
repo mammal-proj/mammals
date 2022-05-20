@@ -13,21 +13,24 @@ knitr::opts_chunk$set(
 )
 ```
 
-# mammals
+# mammals <img src="man/figures/mammals-fig.png" width=120 align="right"/>
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/mammals)](https://CRAN.R-project.org/package=mammals)
+[![Codecov test coverage](https://codecov.io/gh/matcasti/mammals/branch/master/graph/badge.svg)](https://app.codecov.io/gh/matcasti/mammals?branch=master)
+[![R-CMD-check](https://github.com/matcasti/mammals/workflows/R-CMD-check/badge.svg)](https://github.com/matcasti/mammals/actions)
 <!-- badges: end -->
 
-The goal of mammals is to ...
+The goal of `mammals` is to provide tools for the implementation of population dynamics analysis.
 
 ## Installation
 
 You can install the development version of mammals like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("remotes")
+remotes::install_github("matcasti/mammals")
 ```
 
 ## Example
@@ -39,18 +42,6 @@ library(mammals)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Code of Conduct
 
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+Please note that the mammals project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

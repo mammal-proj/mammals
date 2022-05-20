@@ -1,12 +1,19 @@
 Package: mammals
-Title: What the Package Does (One Line, Title Case)
+Title: Population Dynamics Analysis
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R:
+    c(
+      person("Matías", "Castillo Aguilar", , "m99castillo@gmail.com", 
+      role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7291-247X")),
+      person("Renato", "Borras Chávez", , "rborras@gmail.com", 
+      role = c("aut")),
+      person("Carla", "Rivera Rebella", , "rodofitas@gmail.com", 
+      role = c("aut"), comment = c(ORCID = "0000-0001-8163-3325"))
+    )
+Description: Tools for the implementation of population dynamics analysis.
 License: MIT + file LICENSE
 Suggests: 
+    covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
