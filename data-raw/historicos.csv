@@ -1,0 +1,735 @@
+isla,lobera,codigo,latitud,longitud,tipologia,importancia,year,macho,hembra,adultos,agua,juveniles,cachorros_tierra,cachorros_agua,desconocido,total,total_adultos,total_cachorros,autor,status
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1984,1,2,,,20,0,,0,23,23,0,Cardenas J.,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1993,,,33,,,3,,,36,33,3,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1996,,,208,,,111,,,319,208,111,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,6272543.48,Reproductiva,No clave,1997,,,101,,,7,,,108,101,7,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1998,,,87,24,76,14,,,201,187,14,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,1999,,,151,8,,23,,,182,159,23,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2000,,,91,105,,51,,,247,196,51,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2001,,,404,36,,92,,,532,440,92,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2002,,,,139,,,,,139,139,0,CONAF  ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2003,,,151,139,,144,,,434,290,144,Osman,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2004,,,211,,,137,,,348,211,137,Osman,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2005,97,314,,165,16,107,0,0,699,592,107,Osman ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2007,,,417,35,,216,,,668,452,216,CONAF ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2008,,,1205,248,,230,,,1683,1453,230,CONAF ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2009,,,1224,384,,431,,,2039,1608,431,CONAF ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2012,,,1501,371,,263,,,2135,1872,263,CONAF ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2017,,,3075,2416,,594,,,6085,5491,594,CONAF ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2018,,,438,145,,285,87,,955,583,372,CONAF ,Completo
+Robinson Crusoe,Bahia el padre,RC1,6272543.48,691362.52,Reproductiva,No clave,2021,,,1700,503,,364,,,2567,2203,364,CONAF ,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1968,,,15,,,,,,15,15,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1969,,,30,,,,,,30,30,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1993,,,275,,,87,,,362,275,87,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1997,,,1150,,,343,,,1493,1150,343,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1998,,,329,63,282,225,,,899,674,225,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,1999,,,202,22,,78,,,302,224,78,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2000,,,137,169,,207,,,513,306,207,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2001,,,998,99,,565,,,1662,1097,565,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2002,,,,286,,,,,286,286,0,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2003,,,852,286,,617,,,1755,1138,617,Osman,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2004,,,436,,,493,,,929,436,493,Osman,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2005,75,161,,337,13,136,0,2,724,588,136,Osman ,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2006,,,140,35,,33,,,208,175,33,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2008,,,677,307,,149,,,1133,984,149,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2009,,,1145,102,,1144,,,2391,1247,1144,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2012,,,546,238,,391,,,1175,784,391,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2017,,,2432,1589,,1587,,,5608,4021,1587,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2018,,,1482,456,,402,87,,2427,1938,489,CONAF,Completo
+Robinson Crusoe,Bahia ohiggins,RC2,6271147.00,691148.00,Reproductiva,Clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1968,,,90,,,,,,90,90,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1984,6,8,,,10,4,,0,28,24,4,Cardenas J.,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1993,,,496,,,18,,,514,496,18,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1996,,,1089,,,687,,,1776,1089,687,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1997,,,547,,,35,,,582,547,35,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1998,,,230,18,245,6,,,499,493,6,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,1999,,,462,93,,18,,,573,555,18,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2000,,,365,278,,4,,,647,643,4,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2001,,,398,37,,19,,,454,435,19,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2002,,,,144,,,,,144,144,0,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2003,,,379,144,,11,,,534,523,11,Osman,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2004,,,257,,,11,,,268,257,11,Osman,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2005,142,16,,515,70,9,0,2,754,745,9,Osman ,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2006,,,568,400,,44,,,1012,968,44,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2007,,,1047,32,,35,,,1114,1079,35,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2008,,,620,261,,59,,,940,881,59,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2009,,,982,206,,49,,,1237,1188,49,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2012,,,1997,202,,92,,,2291,2199,92,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2017,,,1666,1088,,222,,,2976,2754,222,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2018,,,575,368,,418,139,,1500,943,557,CONAF,Completo
+Robinson Crusoe,Carvajal,RC3,6271550.78,691164.91,Reproductiva,Clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1997,,,0,,,0,,,0,0,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,1999,,,39,0,,0,,,39,39,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2000,,,81,7,,0,,,88,88,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2001,,,72,0,,0,,,72,72,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2002,,,,23,,,,,23,23,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2003,,,98,23,,0,,,121,121,0,Osman,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2004,,,101,,,3,,,104,101,3,Osman,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2005,,,,10,,,0,,10,10,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2006,,,84,27,,0,,,111,111,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2007,,,121,0,,0,,,121,121,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04 ,Reproductiva,No clave,2008,,,337,77,,0,,,414,414,0,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04,Reproductiva,No clave,2009,,,99,40,,6,,,145,139,6,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04,Reproductiva,No clave,2012,,,125,59,,2,,,186,184,2,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04,Reproductiva,No clave,2017,,,807,59,,56,,,922,866,56,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04,Reproductiva,No clave,2018,,,97,59,,62,2,,220,156,64,CONAF,Completo
+Robinson Crusoe,Chupones,RC4,6274064.76,694383.04,Reproductiva,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1984,4,0,,,0,0,,0,4,4,0,Cardenas J.,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1993,,,49,,,2,,,51,49,2,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1997,,,48,,,0,,,48,48,0,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1998,,,38,0,19,3,,,60,57,3,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2000,,,39,0,,8,,,47,39,8,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2001,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2002,,,,1,,,,,1,1,0,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2003,,,81,1,,0,,,82,82,0,Osman,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2004,0,0,0,0,0,2,0,0,2,0,2,Osman,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2006,,,46,22,,3,,,71,68,3,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2007,,,222,2,,3,,,227,224,3,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2008,,,128,6,,8,,,142,134,8,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2009,,,28,27,,1,,,56,55,1,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2012,,,62,10,,0,,,72,72,0,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2017,,,89,0,,2,,,91,89,2,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2018,,,16,7,,6,0,,29,23,6,CONAF,Completo
+Robinson Crusoe,Cueva del sur ,RC5,6273179.53,700286.92,Reproductiva,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1984,0,0,,,2,0,,0,2,2,0,Cardenas J.,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1993,,,210,,,5,,,215,210,5,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1997,,,150,,,4,,,154,150,4,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1998,,,104,9,1365,2,,,1480,1478,2,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,1999,,,296,32,,5,,,333,328,5,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2000,,,722,6,,3,,,731,728,3,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2001,,,383,39,,10,,,432,422,10,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2002,,,,119,,,,,119,119,0,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2003,,,606,119,,19,,,744,725,19,Osman,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2004,,,803,,,25,,,828,803,25,Osman,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2005,208,787,,155,79,31,0,2,1262,1231,31,Osman ,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2006,,,274,67,,16,,,357,341,16,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2007,,,114,2,,6,,,122,116,6,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2008,,,369,138,,15,,,522,507,15,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2009,,,910,12,,3,,,925,922,3,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2012,,,3299,179,,39,,,3517,3478,39,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2017,,,4203,233,,135,,,4571,4436,135,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2018,,,1090,361,,548,400,,2399,1451,948,CONAF,Completo
+Robinson Crusoe,El arenal ,RC6,6272353.55,691706.59,No reproductiva ,No clave,2021,,,5893,1459,,,,,7352,7352,0,CONAF,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66 ,690407.85,No reproductiva ,No clave,1968,,,8,,,,,,8,8,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66 ,690407.85,No reproductiva ,No clave,1969,,,3,,,,,,3,3,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66 ,690407.85,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2000,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2001,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2002,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2004,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2006,,,250,244,,202,,,696,494,202,CONAF,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2007,,,272,34,,17,,,323,306,17,CONAF,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2012,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2017,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2018,,,53,34,,38,52,,177,87,90,CONAF,Completo
+Robinson Crusoe,El espolon ,RC7,6271987.66,690407.85,No reproductiva ,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1996,,,23,,,0,,,23,23,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,1999,,,23,1,,0,,,24,24,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,2000,,,17,38,,0,,,55,55,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,2001,,,6,8,,0,,,14,14,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,2002,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87 ,702707.04,No reproductiva ,No clave,2004,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2005,,,,5,,,0,,5,5,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2006,,,4,0,,0,,,4,4,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2007,,,5,0,,0,,,5,5,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2008,,,7,5,,0,,,12,12,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2009,,,11,0,,0,,,11,11,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2012,,,4,1,,0,,,5,5,0,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2017,,,18,2,,1,,,21,20,1,CONAF,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2018,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pangal ,RC8,6275335.87,702707.04,No reproductiva ,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1984,0,0,,,14,0,,0,14,14,0,Cardenas J.,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1997,,,126,,,31,,,157,126,31,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,2000,,,16,13,,0,,,29,29,0,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,2001,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,2002,,,,0,,,,,0,0,0,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,2003,,,5,0,,3,,,8,5,3,Osman,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,2004,,,15,,,3,,,18,15,3,Osman,Completo
+Robinson Crusoe,El pito,RC9,6273585.70 ,691612.29,No reproductiva ,No clave,2005,1,58,,7,2,2,0,0,70,68,2,Osman ,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2006,,,637,42,,293,,,972,679,293,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2009,,,27,7,,0,,,34,34,0,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2012,,,109,39,,3,,,151,148,3,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2017,,,14,0,,232,,,246,14,232,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2018,,,47,23,,8,18,,96,70,26,CONAF,Completo
+Robinson Crusoe,El pito,RC9,6273585.70,691612.29,No reproductiva ,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1968,,,8,,,,,,8,8,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1969,,,13,,,,,,13,13,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1984,1,6,,,33,0,,9,49,49,0,Cardenas J.,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1996,,,315,,,0,,,315,315,0,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1997,,,204,,,30,,,234,204,30,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1998,,,223,0,130,71,,,424,353,71,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,1999,,,327,157,,16,,,500,484,16,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2000,,,157,16,,6,,,179,173,6,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2001,,,244,91,,46,,,381,335,46,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2002,,,,32,,,,,32,32,0,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2003,,,270,32,,74,,,376,302,74,Osman,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2004,,,0,,,31,,,31,0,31,Osman,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2005,84,445,,526,34,28,0,2,1119,1091,28,Osman,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2006,,,320,3,,155,,,478,323,155,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2008,,,308,34,,47,,,389,342,47,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2009,,,320,59,,0,,,379,379,0,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2012,,,241,66,,19,,,326,307,19,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2017,,,1121,98,,346,,,1565,1219,346,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2018,,,1468,76,,482,46,,2072,1544,528,CONAF,Completo
+Robinson Crusoe,Juanango,RC10,6278194.89,696365.47,No reproductiva ,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1997,,,26,,,251,,,277,26,251,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,1999,,,141,21,,11,,,173,162,11,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2000,,,93,5,,15,,,113,98,15,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2001,,,7,0,,0,,,7,7,0,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2002,,,,0,,,,,0,0,0,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2003,,,45,,,1,,,46,45,1,Osman,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2004,,,64,,,0,,,64,64,0,Osman,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2005,66,1,,15,26,18,0,0,126,108,18,Osman ,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2006,,,75,13,,11,,,99,88,11,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2007,,,114,0,,0,,,114,114,0,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2008,,,233,22,,5,,,260,255,5,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2009,,,164,4,,6,,,174,168,6,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2012,,,736,103,,220,,,1059,839,220,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2017,,,382,196,,545,,,1123,578,545,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2018,,,337,103,,209,46,,695,440,255,CONAF,Completo
+Robinson Crusoe,La barraca,RC11,6273960.36,693443.52,Reproductiva,No clave,2021,,,1207,4117,,,,,5324,5324,0,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1968,,,60,,,,,,60,60,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1969,,,195,,,,,,195,195,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1984,0,0,,,0,0,,25,25,25,0,Cardenas J.,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1998,,,191,64,120,88,,,463,375,88,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,1999,,,326,48,,62,,,436,374,62,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2000,,,181,40,,63,,,284,221,63,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2001,,,104,22,,43,,,169,126,43,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2002,,,,66,,,,,66,66,0,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2003,,,85,66,,4,,,155,151,4,Osman,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2004,,,180,,,48,,,228,180,48,Osman,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2005,54,48,,78,28,24,0,0,232,208,24,Osman ,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2007,,,783,62,,147,,,992,845,147,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2008,,,420,68,,145,,,633,488,145,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2009,,,255,33,,31,,,319,288,31,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2012,,,423,132,,38,,,593,555,38,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2017,,,878,1398,,666,,,2942,2276,666,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2018,,,38,45,,22,5,,110,83,27,CONAF,Completo
+Robinson Crusoe,La zapatilla ,RC12,6275256.13,693779.73,Reproductiva,No clave,2021,,,412,273,,,,,685,685,0,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1984,5,32,,,0,28,,0,65,37,28,Cardenas J.,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1993,,,429,,,91,,,520,429,91,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1997,,,125,,,72,,,197,125,72,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1998,,,51,13,59,62,,,185,123,62,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,1999,,,41,12,,11,,,64,53,11,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2000,,,380,39,,335,,,754,419,335,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2001,,,110,6,,89,,,205,116,89,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2002,,,,33,,,,,33,33,0,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2003,,,59,33,,0,,,92,92,0,Osman,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2004,,,101,,,15,,,116,101,15,Osman,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2005,168,144,,418,56,468,0,4,1258,790,468,Osman ,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2006,,,492,163,,383,,,1038,655,383,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2008,,,240,226,,49,,,515,466,49,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86 ,690612.16,Reproductiva,Clave,2009,,,276,40,,120,,,436,316,120,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86,690612.16,Reproductiva,Clave,2012,,,2053,336,,510,,,2899,2389,510,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86,690612.16,Reproductiva,Clave,2017,,,641,878,,52,,,1571,1519,52,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86,690612.16,Reproductiva,Clave,2018,,,389,78,,246,5,,718,467,251,CONAF,Completo
+Robinson Crusoe,Las 400,RC13,6271596.86,690612.16,Reproductiva,Clave,2021,,,2792,2005,,196,,,4993,4797,196,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1968,,,11,,,,,,11,11,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1969,,,5,,,,,,5,5,0,Aguayo - Maturana -Torres 1971,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1984,0,0,,,83,9,,0,92,83,9,Cardenas J.,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1993,,,57,,,9,,,66,57,9,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2000,,,38,18,,10,,,66,56,10,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2001,,,52,5,,0,,,57,57,0,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2002,,,,5,,,,,5,5,0,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2003,,,27,5,,4,,,36,32,4,Osman,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2004,0,0,35,0,0,0,0,0,35,35,0,Osman,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2005,,,,12,,,0,,12,12,0,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2006,,,19,3,,0,,,22,22,0,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2007,,,15,5,,0,,,20,20,0,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2008,,,18,8,,0,,,26,26,0,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2009,,,54,9,,6,,,69,63,6,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2012,,,284,8,,86,,,378,292,86,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2017,,,783,182,,66,,,1031,965,66,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2018,,,414,56,,46,14,,530,470,60,CONAF,Completo
+Robinson Crusoe,Los ramplones ,RC14,6273139.00,698324.00,No reproductiva ,No clave,2021,,,55,13,,,,,68,68,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1993,,,21,,,0,,,21,21,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1996,,,24,,,0,,,24,24,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1997,,,8,,,0,,,8,8,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,1999,,,0,29,,0,,,29,29,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2000,,,0,12,,0,,,12,12,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2001,,,0,0,,0,,,0,0,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2002,,,,5,,,,,5,5,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2003,,,0,5,,0,,,5,5,0,Osman,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2004,,,13,,,0,,,13,13,0,Osman,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2005,5,7,,57,4,0,0,36,109,109,0,Osman,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2006,,,0,49,,0,,,49,49,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2007,,,8,21,,0,,,29,29,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2008,,,10,18,,6,,,34,28,6,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2009,,,27,26,,0,,,53,53,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2012,,,73,36,,1,,,110,109,1,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2017,,,0,2,,0,,,2,2,0,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2018,,,75,33,,18,16,,142,108,34,CONAF,Completo
+Robinson Crusoe,Noreste largo ,RC15,6277951.07,699650.56,No reproductiva ,No clave,2021,,,1624,108,,,,,1732,1732,0,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1984,0,0,,,0,0,,44,44,44,0,Cardenas J.,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1997,,,132,,,31,,,163,132,31,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2000,,,232,44,,54,,,330,276,54,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2001,,,379,21,,19,,,419,400,19,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2002,,,,51,,,,,51,51,0,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2003,,,163,51,,39,,,253,214,39,Osman,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2004,,,409,,,73,,,482,409,73,Osman,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2005,61,1,,97,37,48,0,0,244,196,48,Osman ,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53 ,Reproductiva,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2008,,,724,83,,95,,,902,807,95,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2009,,,783,49,,159,,,991,832,159,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2012,,,565,327,,201,,,1093,892,201,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2017,,,78,481,,456,,,1015,559,456,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2018,,,245,70,,352,48,,715,315,400,CONAF,Completo
+Robinson Crusoe,Piedra horacio,RC16,6274349.22,692630.53,Reproductiva,No clave,2021,,,500,0,,,,,500,500,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1984,0,0,,,0,0,,17,17,17,0,Cardenas J.,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1998,,,3,0,0,0,,,3,3,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,1999,,,7,16,,0,,,23,23,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2000,,,60,36,,0,,,96,96,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2001,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2002,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2004,,,38,,,0,,,38,38,0,Osman,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2005,8,50,,21,3,0,0,1,83,83,0,Osman,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77 ,695931.94,No reproductiva ,No clave,2006,,,12,5,,0,,,17,17,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2007,,,21,2,,0,,,23,23,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2008,,,35,10,,0,,,45,45,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2009,,,47,10,,0,,,57,57,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2012,,,89,16,,1,,,106,105,1,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2017,,,41,12,,0,,,53,53,0,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2018,,,3,50,,0,27,,80,53,27,CONAF,Completo
+Robinson Crusoe,Punta rinones,RC17,6278681.77,695931.94,No reproductiva ,No clave,2021,,,270,78,,,,,348,348,0,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1984,0,0,,,252,0,,0,252,252,0,Cardenas J.,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,2000,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46 ,692533.97,Reproductiva,No clave,2001,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2002,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2004,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2006,,,275,148,,17,,,440,423,17,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2008,,,287,139,,23,,,449,426,23,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2009,,,699,41,,71,,,811,740,71,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2012,,,620,75,,78,,,773,695,78,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2017,,,1483,792,,578,,,2853,2275,578,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2018,,,856,69,,388,26,,1339,925,414,CONAF,Completo
+Robinson Crusoe,Punta trueno,RC18,6272536.46,692533.97,Reproductiva,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,nan,nan,nan,nan,nan,nan,1978,,,512,,,,,,512,512,0,Torres 1987,Completo
+Robinson Crusoe,nan,nan,nan,nan,nan,nan,1983,,,1544,,,,,,1544,1544,0,Torres 1987,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1993,,,141,,,10,,,151,141,10,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2000,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2001,,,1,2,,0,,,3,3,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2002,,,,1,,,,,1,1,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2003,,,5,1,,0,,,6,6,0,Osman,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2004,,,1,,,0,,,1,1,0,Osman,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2006,,,2,1,,0,,,3,3,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2007,,,0,1,,0,,,1,1,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2008,,,0,2,,0,,,2,2,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2009,,,10,14,,0,,,24,24,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2012,,,41,2,,1,,,44,43,1,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2017,,,46,6,,0,,,52,52,0,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2018,,,12,7,,16,2,,37,19,18,CONAF,Completo
+Robinson Crusoe,Tierras amarillas ,RC19,6274066.55,694421.80,Reproductiva,No clave,2021,,,427,328,,,,,755,755,0,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1984,15,46,,,43,66,,0,170,104,66,Cardenas J.,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1993,,,1999,,,323,,,2322,1999,323,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1996,,,1383,,,0,,,1383,1383,0,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1997,,,1464,,,498,,,1962,1464,498,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1998,,,510,210,528,492,,,1740,1248,492,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,1999,,,1688,163,,713,,,2564,1851,713,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2000,,,972,214,,563,,,1749,1186,563,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2001,,,815,144,,779,,,1738,959,779,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2002,,,,101,,,,,101,101,0,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2003,,,1183,101,,1075,,,2359,1284,1075,Osman,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2004,,,1455,,,1648,,,3103,1455,1648,Osman,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2005,447,6,,621,88,1236,0,0,2398,1162,1236,Osman ,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2006,,,1410,1078,,1119,,,3607,2488,1119,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2007,,,1978,122,,1819,,,3919,2100,1819,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2008,,,1820,703,,762,,,3285,2523,762,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2009,,,5573,244,,1262,,,7079,5817,1262,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2012,,,3086,1376,,2268,,,6730,4462,2268,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2017,,,6114,1786,,3116,,,11016,7900,3116,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2018,,,3885,828,,2145,266,,7124,4713,2411,CONAF,Completo
+Robinson Crusoe,Tierras blancas ,RC20,6273437.01,692552.97,Reproductiva,Clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1984,14,52,,,18,68,,105,257,189,68,Cardenas J.,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1993,,,1497,,,58,,,1555,1497,58,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1996,,,1196,,,590,,,1786,1196,590,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1997,,,1464,,,541,,,2005,1464,541,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1998,,,423,118,255,219,,,1015,796,219,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,1999,,,847,363,,275,,,1485,1210,275,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2000,,,1239,316,,911,,,2466,1555,911,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2001,,,1378,349,,703,,,2430,1727,703,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2002,,,,503,,,,,503,503,0,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2003,,,1099,503,,825,,,2427,1602,825,Osman,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2004,,,1505,,,944,,,2449,1505,944,Osman,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2005,289,37,,322,173,626,0,25,1472,846,626,Osman,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2006,,,1505,306,,1276,,,3087,1811,1276,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2007,,,2090,300,,1005,,,3395,2390,1005,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2008,,,2878,410,,809,,,4097,3288,809,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2009,,,5040,393,,1450,,,6883,5433,1450,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2012,,,7223,801,,1902,,,9926,8024,1902,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85 ,696332.25 ,Reproductiva,Clave,2017,,,10211,529,,2487,,,13227,10740,2487,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85,696332.25,Reproductiva,Clave,2018,,,5949,690,,1661,349,,8649,6639,2010,CONAF,Completo
+Robinson Crusoe,Tres puntas norte ,RC21,6276041.85,696332.25,Reproductiva,Clave,2021,,,4960,3399,,,,,8359,8359,0,CONAF,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,1999,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2000,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2001,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres Puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2002,0,0,0,0,,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2004,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2012,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2017,,,456,90,,10,,,556,546,10,CONAF,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2018,,,28,9,,4,0,,41,37,4,CONAF,Completo
+Robinson Crusoe,Tres puntas sur ,RC22,6274567.27,696885.90,No reproductiva ,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1984,0,0,,,84,0,,0,84,84,0,Cardenas J.,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1993,,,130,,,0,,,130,130,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1996,,,168,,,0,,,168,168,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1997,,,10,,,0,,,10,10,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1998,,,60,0,38,0,,,98,98,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,1999,,,99,241,,0,,,340,340,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2000,,,108,36,,0,,,144,144,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2001,,,52,18,,2,,,72,70,2,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2002,,,,16,,,,,16,16,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2003,,,54,16,,1,,,71,70,1,Osman,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2004,,,0,,,0,,,0,0,0,Osman,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2005,24,13,,76,4,0,0,4,121,121,0,Osman,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2006,,,33,13,,2,,,48,46,2,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2007,,,52,38,,0,,,90,90,0,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2008,,,90,29,,10,,,129,119,10,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2009,,,67,60,,4,,,131,127,4,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2012,,,165,52,,28,,,245,217,28,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2017,,,177,133,,149,,,459,310,149,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2018,,,29,16,,43,9,,97,45,52,CONAF,Completo
+Robinson Crusoe,Vaqueria ,RC23,6279263.99,697659.77,Reproductiva,No clave,2021,,,412,45,,,,,457,457,0,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1996,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1997,,,0,,,0,,,0,0,0,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1998,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,1999,,,41,26,,8,,,75,67,8,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2000,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2001,,,16,0,,10,,,26,16,10,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2002,,,,2,,,,,2,2,0,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2003,,,21,2,,64,,,87,23,64,Osman,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2004,,,43,,,69,,,112,43,69,Osman,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2005,,,,18,,,,,18,18,0,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2006,,,43,17,,69,,,129,60,69,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85 ,696948.40,Reproductiva,No clave,2007,,,174,6,,155,,,335,180,155,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85,696948.40,Reproductiva,No clave,2008,,,155,10,,150,,,315,165,150,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85,696948.40,Reproductiva,No clave,2009,,,361,32,,126,,,519,393,126,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85,696948.40,Reproductiva,No clave,2012,,,819,89,,338,,,1246,908,338,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85,696948.40,Reproductiva,No clave,2017,,,2966,84,,796,,,3846,3050,796,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85,696948.40,Reproductiva,No clave,2018,,,938,156,,1105,391,,2590,1094,1496,CONAF,Completo
+Robinson Crusoe,Varadero ,RC24,6274921.85,696948.40,Reproductiva,No clave,2021,,,1302,138,,485,,,1925,1440,485,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,1984,6,28,,,22,21,,115,192,171,21,Cardenas J.,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,1993,,,1255,,,197,,,1452,1255,197,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,2003,,,,319,,,,,319,319,0,Osman,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,2005,,,,469,,0,,,469,469,0,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69 ,No reproductiva ,No clave,2008,,,3621,68,,910,,,4599,3689,910,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69,No reproductiva ,No clave,2009,,,3927,227,,1542,,,5696,4154,1542,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69,No reproductiva ,No clave,2012,,,5290,265,,2669,,,8224,5555,2669,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69,No reproductiva ,No clave,2017,,,7104,599,,633,,,8336,7703,633,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69,No reproductiva ,No clave,2018,,,2604,1040,,1440,92,,5176,3644,1532,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69,No reproductiva ,No clave,2020,,,4438,727,,2301,237,,7703,5165,2538,CONAF,Completo
+Santa Clara,Costa cerro alto,SC1,6268086.20,691681.69,No reproductiva ,No clave,2021,,,4438,1287,,1982,,,7707,5725,1982,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,1969,,,4,,,,,,4,4,0,Aguayo - Maturana -Torres 1971,Parcial
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,1984,1,5,,,70,5,,0,81,76,5,Cardenas J.,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,1993,,,72,,,0,,,72,72,0,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,1997,,,172,,,61,,,233,172,61,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2003,,,1828,257,,21,,,2106,2085,21,Osman,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2005,476,337,,254,305,83,0,50,1505,1422,83,Osman ,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2006,,,1175,141,,366,,,1682,1316,366,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2008,,,1915,101,,99,,,2115,2016,99,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2009,,,2479,552,,6,,,3037,3031,6,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2012,,,3139,113,,35,,,3287,3252,35,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2017,,,5937,578,,122,,,6637,6515,122,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2018,,,2165,255,,2029,112,,4561,2420,2141,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2020,,,3692,324,,540,30,,4586,4016,570,CONAF,Completo
+Santa Clara,El weste ,SC2,6269321.30,690300.05,Reproductiva,Clave,2021,,,1633,241,,142,,,2016,1874,142,CONAF,Completo
+Santa Clara,Entre bahias ,SC3,6269134.00,690832.93 ,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.01,690832.93 ,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.03,690832.93 ,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.06,690832.93 ,No reproductiva ,No clave,2003,,,645,,,105,,,750,645,105,Osman,Completo
+Santa Clara,Entre bahias ,SC3,6269134.07,690832.93 ,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.08,690832.93 ,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.09,690832.93 ,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.10,690832.93 ,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.11,690832.93 ,No reproductiva ,No clave,2012,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.12,690832.93 ,No reproductiva ,No clave,2017,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.13,690832.93 ,No reproductiva ,No clave,2018,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.14,690832.93 ,No reproductiva ,No clave,2020,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Entre bahias ,SC3,6269134.15,690832.93 ,No reproductiva ,No clave,2021,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,1984,0,0,,,12,0,,0,12,12,0,Cardenas J.,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,1993,,,350,,,19,,,369,350,19,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,1997,,,145,,,326,,,471,145,326,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,2003,,,359,161,,402,,,922,520,402,Osman,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,2005,251,297,,134,888,371,0,58,1999,1628,371,Osman ,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,2006,,,735,106,,450,,,1291,841,450,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,2008,,,1053,81,,481,,,1615,1134,481,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,2009,,,650,11,,519,,,1180,661,519,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22 ,690128.04,Reproductiva,Clave,2012,,,1210,155,,907,,,2272,1365,907,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22,690128.04,Reproductiva,Clave,2017,,,1925,254,,1212,,,3391,2179,1212,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22,690128.04,Reproductiva,Clave,2018,,,711,65,,571,7,,1354,776,578,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22,690128.04,Reproductiva,Clave,2020,,,911,235,,936,52,,2134,1146,988,CONAF,Completo
+Santa Clara,La matriz ,SC4,6269059.22,690128.04,Reproductiva,Clave,2021,,,384,220,,296,,,900,604,296,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,1984,1,1,,,13,0,,0,15,15,0,Cardenas J.,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,1993,,,25,,,0,,,25,25,0,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,1997,,,1422,,,397,,,1819,1422,397,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,2003,,,1303, ,,649,,,1952,1303,649,Osman,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,2005,815,945,,208,289,871,0,8,3136,2265,871,Osman ,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,2006,,,3049,169,,1480,,,4698,3218,1480,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,2008,,,205,65,,33,,,303,270,33,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,2009,,,1623,33,,323,,,1979,1656,323,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24 ,690812.58,Reproductiva,Clave,2012,,,2085,137,,1129,,,3351,2222,1129,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24,690812.58,Reproductiva,Clave,2017,,,4428,656,,311,,,5395,5084,311,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24,690812.58,Reproductiva,Clave,2018,,,1234,507,,800,162,,2703,1741,962,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24,690812.58,Reproductiva,Clave,2020,,,4316,481,,1040,51,,5888,4797,1091,CONAF,Completo
+Santa Clara,Los alelices ,SC5,6268612.24,690812.58,Reproductiva,Clave,2021,,,864,99,,287,,,1250,963,287,CONAF,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,1984,0,0,,,3,0,,0,3,3,0,Cardenas J.,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,1993,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,1997,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2012,,,87,93,,3,,,183,180,3,CONAF,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2017,,,438,0,,0,,,438,438,0,CONAF,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2018,,,28,10,,2,3,,43,38,5,CONAF,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2020,,,178,61,,71,10,,320,239,81,CONAF,Completo
+Santa Clara,Mancha blanca ,SC6,6269477.15,689683.67,No reproductiva ,No clave,2021,,,308,72,,,,,380,380,0,CONAF,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,1965,,,8,,,,,,8,8,0,Torres 1987,Parcial
+Santa Clara,nan,nan,nan,nan,nan,nan,1978,,,84,,,,,,84,84,0,Torres 1987,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,1983,,,497,,,,,,497,497,0,Cardenas - Luna ,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,1996,,,1134,,,396,,,1530,1134,396,CONAF,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,1998,,,1135,290,898,575,,,2898,2323,575,CONAF,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,1999,,,4168,252,,1065,,,5485,4420,1065,CONAF,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,2001,,,3421,185,,508,,,4114,3606,508,CONAF,Completo
+Santa Clara,nan,nan,nan,nan,nan,nan,2002,,,,2212,,,,,2212,2212,0,CONAF,Completo
+Alejandro Selkirk,nan,nan,nan,nan,nan,nan,1965,,,200,,,,,,200,200,0,Aguayo - Maturana -Torres 1971 / Torres ,Parcial
+Alejandro Selkirk,nan,nan,nan,nan,nan,nan,1974,,,130,,,,,,130,130,0,Schovholz - Mann,Parcial
+Alejandro Selkirk,nan,nan,nan,nan,nan,nan,1978,,,1820,,,,,,1820,1820,0,Torres 1987,Completo
+Alejandro Selkirk,nan,nan,nan,nan,nan,nan,1982,,,3480,,,,,,3480,3480,0,Torres 1987,Completo
+Alejandro Selkirk,nan,nan,nan,nan,nan,nan,1983,,,4544,,,,,,4544,4544,0,Cardenas - Luna ,Completo
+Alejandro Selkirk,nan,nan,nan,nan,nan,nan,2012,,,80000,,,,,,80000,80000,0,CONAF,Parcial
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,1968,,,220,,,,,,220,220,0,Aguayo - Maturana -Torres 1971,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,1969,,,360,,,,,,360,360,0,Aguayo - Maturana -Torres 1971,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El guaton ,AS1,6262105.89,517117.30,Reproductiva,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,1984,,,130,,,125,,,255,130,125,Cardenas J.,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2003,,,767,,,1633,,,2400,767,1633,Osman,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2004,93,798,,,,1737,,,2628,891,1737,Osman,Parcial
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2005,274,844,,0,26,1810,0,0,2954,1144,1810,Osman ,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2006,,,5000,400,,1700,,,7100,5400,1700,CONAF,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2007,,,5100,850,,2150,80,,8180,5950,2230,CONAF,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2008,0,0,,312,,2359,,,2671,312,2359,CONAF,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2009,,,4040,30,,4671,,,8741,4070,4671,CONAF,Completo
+Alejandro Selkirk,El tongo ,AS2,6259712.12 ,518235.52,Reproductiva,Clave,2010,,,11359,1525,,6879,,,19763,12884,6879,CONAF,Completo
+Alejandro Selkirk,La dama,AS3,6262341.93,522482.54,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.93,522482.54,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.93,522482.54,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.94,522482.55,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.95,522482.56,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.96,522482.57,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.97,522482.58,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.98,522482.59,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341.99,522482.60,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La dama,AS3,6262341100,522482.61,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.09,516491.38,No reproductiva ,No clave,1968,,,12,,,,,,12,12,0,Aguayo - Maturana -Torres 1971,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.10,516491.39,No reproductiva ,No clave,1969,,,140,,,,,,140,140,0,Aguayo - Maturana -Torres 1971,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.11,516491.40,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.12,516491.41,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.13,516491.42,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.14,516491.43,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.15,516491.44,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.16,516491.45,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,La ventana ,AS4,6260672.17,516491.46,No reproductiva ,No clave,2009,,,350,0,,0,,,350,350,0,CONAF,Parcial
+Alejandro Selkirk,La ventana ,AS4,6260672.18,516491.47,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,1968,,,35,,,,,,35,35,0,Aguayo - Maturana -Torres 1971,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,1969,,,10,,,,,,10,10,0,Aguayo - Maturana -Torres 1971,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,1984,,,1900,,,870,,,2770,1900,870,Cardenas J.,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,2003,,,8353,,,3211,,,11564,8353,3211,Osman,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,2005,1037,1974,,0,395,4145,0,2664,10215,6070,4145,Osman ,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,2006,,,12600,700,,7500,,,20800,13300,7500,CONAF,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,2007,,,15734,3770,,7820,990,,28314,19504,8810,CONAF,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72 ,Reproductiva,Clave,2008,,,9943,4890,,10345,,,25178,14833,10345,CONAF,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72,Reproductiva,Clave,2009,,,23930,3279,,16695,,,43904,27209,16695,CONAF,Completo
+Alejandro Selkirk,Loberia ,AS5,6259056.65,518747.72,Reproductiva,Clave,2010,,,24159,1656,,16331,,,42146,25815,16331,CONAF,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.00,519594.00,No reproductiva ,Clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.00,519594.00,No reproductiva ,Clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.00,519594.00,No reproductiva ,Clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.01,519594.01,No reproductiva ,Clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.02,519594.02,No reproductiva ,Clave,2005,389,783,,0,111,986,0,487,2756,1770,986,Osman,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.03,519594.03,No reproductiva ,Clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.04,519594.04,No reproductiva ,Clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.05,519594.05,No reproductiva ,Clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.06,519594.06,No reproductiva ,Clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Loberia sur ,AS6,6258495.07,519594.07,No reproductiva ,Clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.72 ,522676.04,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.72 ,522676.04,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.72 ,522676.04,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.73,522676.05,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.74,522676.06,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.75,522676.07,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.76,522676.08,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.77,522676.09,No reproductiva ,No clave,2008,16,4,,8,,0,,,28,28,0,CONAF,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.78,522676.10,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Piedra del lobo ,AS7,6263656.79,522676.11,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.31,522653.31,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.31,522653.31,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.31,522653.31,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.32,522653.32,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.33,522653.33,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.34,522653.34,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.35,522653.35,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.36,522653.36,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.37,522653.37,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa ancha ,AS8,6261849.38,522653.38,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2008,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Playa larga ,AS9,6260517.85,517771.30 ,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.66,519927.32,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.66,519927.32,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.66,519927.32,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.67,519927.33,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.68,519927.34,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.69,519927.35,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.70,519927.36,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.71,519927.37,No reproductiva ,No clave,2008,263,8,,289,,0,,,560,560,0,CONAF,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.72,519927.38,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Porras ,AS10,6258464.73,519927.39,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.67,522386.10,No reproductiva ,No clave,1968,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.67,522386.10,No reproductiva ,No clave,1969,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.67,522386.10,No reproductiva ,No clave,1984,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.68,522386.11,No reproductiva ,No clave,2003,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.69,522386.12,No reproductiva ,No clave,2005,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.70,522386.13,No reproductiva ,No clave,2006,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.71,522386.14,No reproductiva ,No clave,2007,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.72,522386.15,No reproductiva ,No clave,2008,7,0,,15,,0,,,22,22,0,CONAF,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.73,522386.16,No reproductiva ,No clave,2009,0,0,0,0,0,0,0,0,0,0,0,,Completo
+Alejandro Selkirk,Varadero ,AS11,6261114.74,522386.17,No reproductiva ,No clave,2010,0,0,0,0,0,0,0,0,0,0,0,,Completo
