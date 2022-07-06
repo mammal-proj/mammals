@@ -1,0 +1,445 @@
+
+# Importar paquetes -------------------------------------------------------
+require(tidyverse)
+require(RColorBrewer)
+require(ggplot2)
+require(ggtext)
+require(cowplot)
+require(viridis)
+
+
+# Importar Base de Datos --------------------------------------------------
+df <- read.csv("/media/littlecharlotte/Carlita/Documentos/Proyectos/FIPA/Datos/historicos.csv")
+
+
+# Tablas de Datos ---------------------------------------------------------
+
+## Archipielago
+# para que un año sea consierado como valido tienen que estar presentes las 3 islas censadas
+
+# Total individuos por archipielago, status Completo
+archi_total <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total, na.rm = TRUE)) %>% 
+  filter(n() == 3)
+
+# Total adultos por archipielago, status Completo
+archi_adultos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Adultos", length(n()))) %>% 
+  filter(n() == 3)  
+
+# Total cachorros por archipielago, status Completo
+archi_cachorros <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Cachorros", length(n()))) %>% 
+  filter(n() == 3)
+
+## Isla
+# Total individuos por isla, status completo
+isla_total <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total, na.rm = TRUE))
+
+# Total adultos por isla, status completo
+isla_adultos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Adultos", length(n())))
+
+# Total cachorros por isla, status completo
+isla_cachorros <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Cachorros", length(n())))
+
+## Playa
+# Total individuos por playa, status completo y parcial, importancia clave
+playa_total <- df %>% group_by(year, isla, lobera) %>% 
+  filter(importancia == "Clave") %>%
+  filter(lobera != "nan") %>% 
+  summarise(suma = sum(total, na.rm = TRUE))
+
+# Total adultos por playa, status completo y parcial, importancia clave
+playa_adultos <- df %>% group_by(year, isla, lobera) %>% 
+  filter(importancia = "Clave") %>%
+  filter(lobera != "nan") %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE))
+
+# Total cachorros por playa, status completo y parcial, importancia clave
+playa_cachorros <- df %>% group_by(year, isla, lobera) %>% 
+  filter(importancia == "Clave") %>%
+  filter(lobera != "nan") %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE))
+
+
+## Porcentaje individuos por archipielago, status Completo
+
+# Total individuos por archipielago, status Completo
+# Calcular % de Machos, Hembras, Adultos, Juveniles y Cachorros
+
+# ojo! solo hay 35 datos de machos de 734 filas
+# ojo! no lo hice por archipielago porque si tiene que cumplir que sea en las 3 islas no iban a haber casi datos
+
+# columna adultos es cuando no se distingue entre macho y hembra
+# la columna total_adultos es la suma de macho, hembra, agua, juvenil y desconocido
+# machos, hembras y juveniles los comparo con el total de adultos
+# cachorros es la suma de tierra y agua y su porcentaje lo comparo con el total
+
+##### no se con que variable calcular los porcentajes, si total adultos o solo la suma de macho y hembra
+
+crudos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(macho = sum(macho, na.rm = TRUE), hembra = sum(hembra, na.rm = TRUE), juveniles = sum(juveniles, na.rm = TRUE), cachorros = sum(cachorros_tierra, cachorros_agua, na.rm = TRUE), total_adultos = sum(total_adultos, na.rm = TRUE), total = sum(total, na.rm = TRUE))
+
+porcentaje_edad <- crudos %>% group_by(year, isla) %>% 
+  mutate(macho = (macho * 100 / total_adultos), hembra = (hembra * 100 / total_adultos), juveniles = (juveniles * 100 / total_adultos), cachorros = (cachorros * 100 / total), total_adultos = (total_adultos * 100 / total)) 
+
+porcentaje_isla <- crudos %>% group_by(year) %>% 
+  summarise(total_macho = sum(macho), total_hembra = sum(hembra), total_juveniles = sum(juveniles), total_cachorros = sum(cachorros), total_adultos = sum(total_adultos), total = sum(total)) %>% 
+  inner_join(crudos, by = "year") %>% 
+  mutate(macho = (macho * 100 / total_macho), hembra = (hembra * 100 / total_hembra), juveniles = (juveniles * 100 / total_juveniles), cachorros = (cachorros * 100 / total.x), total_adultos = (total_adultos.y * 100 / total.x)) %>% gather(edad, valor, c(9:12, 15))
+
+
+# Graficos ----------------------------------------------------------------
+
+#### Archipielago ####
+# Total
+ggplot(archi_total) + 
+  geom_bar(aes(x = year, y = suma), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Archipiélago") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none")
+
+# Adultos
+ggplot(archi_adultos) + 
+  geom_bar(aes(x = year, y = suma), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Adultos", subtitle = "Archipiélago") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none")
+
+# Cachorros
+ggplot(archi_cachorros) + 
+  geom_bar(aes(x = year, y = suma), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Cachorros", subtitle = "Archipiélago") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none")
+
+# Rango Estareo
+ggplot(archi_adultos) + 
+  geom_bar(aes(x = year, y = suma, fill = edad), stat = "identity") + 
+  geom_bar(data = archi_cachorros, aes(x = year, y = suma, fill = edad), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Archipiélago") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1)
+
+
+
+#### Isla ####
+# Total
+ggplot(isla_total) + 
+  geom_line(aes(x = year, y = suma, colour = isla), size = 1) +
+  geom_point(aes(x = year, y = suma, colour = isla), size = 2) +
+  # geom_line(aes(x = year, y = log(suma), colour = isla), size = 1) + 
+  # geom_point(aes(x = year, y = log(suma), colour = isla), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+
+# Total Adultos
+ggplot(isla_adultos) + 
+  geom_line(aes(x = year, y = suma, colour = isla), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = isla), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Adultos", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+
+# Total Cachorros
+ggplot(isla_cachorros) + 
+  geom_line(aes(x = year, y = suma, colour = isla), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = isla), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Cachorros", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+
+# Rango Estareo serie
+ggplot(isla_adultos) + 
+  geom_line(aes(x = year, y = suma, colour = edad), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = edad), size = 2) + 
+  geom_line(data = isla_cachorros, aes(x = year, y = suma, colour = edad), size = 1) + 
+  geom_point(data = isla_cachorros, aes(x = year, y = suma, colour = edad), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+
+
+# Rango Estareo barras 
+ggplot(isla_adultos) + 
+  geom_bar(aes(x = year, y = suma, fill = isla), stat = "identity") + 
+  geom_bar(data = isla_cachorros, aes(x = year, y = suma, fill = isla), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ edad, nrow = 1)
+
+
+#### Playa ####
+# Total
+ggplot(playa_total) + 
+  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos", subtitle = "Playa") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla * lobera, nrow = 5) 
+
+
+# Total Adultos
+ggplot(playa_adultos) + 
+  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Adultos", subtitle = "Playa") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla * lobera, nrow = 5)
+
+
+# Total Cachorros
+ggplot(playa_cachorros) + 
+  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Cachorros", subtitle = "Playa") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla * lobera, nrow = 5)
+
+
+# Total Cachorros vs N total
+ggplot(playa_cachorros) + 
+  geom_line(aes(x = year, y = log(suma), color = 'Cachorros'), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), color = 'Cachorros'), size = 2) + 
+  geom_line(data = playa_total, aes(x = year, y = log(suma), color = 'Total'), size = 1) + 
+  geom_point(data = playa_total, aes(x = year, y = log(suma), color = 'Total'), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Cachorros vs Individuos Totales", subtitle = "Playa") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 14, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_color_viridis(name = '',
+                     labels = c('Cachorros', 'Total'), 
+                     discrete = TRUE, direction = -1) +
+  facet_wrap(.~ isla * lobera, nrow = 5)
+
+
+
+#### Porcentajes ####
+# Adultos vs Cachorros por Isla
+ggplot(porcentaje_isla %>% filter(!is.nan(porcentaje_isla$valor))) + 
+  geom_bar(aes(x = year, y = valor, fill = isla), stat = "identity", size = 1) + 
+  xlab("Años") + ylab("Porcentaje (%)") + labs(title = "Total de Individuos", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ edad, nrow = 2)
+
+
+# Macho vs Hembras por Isla
+ggplot(porcentaje_isla %>% filter(edad != "cachorros", edad != "total_adultos", edad != "total")) + 
+  geom_bar(aes(x = year, y = valor, fill = isla), stat = "identity", size = 1) + 
+  xlab("Años") + ylab("Porcentaje (%)") + labs(title = "Total de Individuos", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ edad, nrow = 2)
+
