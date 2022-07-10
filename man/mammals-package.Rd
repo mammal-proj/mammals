@@ -21,7 +21,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Renato Borras Chávez \email{rborras@gmail.com}
+  \item Renato Borras-Chavez \email{rborras@gmail.com} (\href{https://orcid.org/0000-0002-6415-2121}{ORCID})
   \item Carla Rivera Rebella \email{rodofitas@gmail.com} (\href{https://orcid.org/0000-0001-8163-3325}{ORCID})
 }
 
