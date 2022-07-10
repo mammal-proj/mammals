@@ -1,0 +1,53 @@
+
+# Importar paquetes -------------------------------------------------------
+require(tidyverse)
+require(RColorBrewer)
+require(ggplot2)
+require(ggtext)
+require(cowplot)
+require(viridis)
+
+
+# Importar Base de Datos --------------------------------------------------
+df <- mammals::sealions
+
+
+# Tablas de Datos ---------------------------------------------------------
+
+## Isla
+# Total individuos por isla, status completo
+isla_total <- df %>%
+  group_by(year, isla) %>%
+  filter(status == "Completo") %>%
+  summarise(suma = sum(total, na.rm = TRUE), .groups = "drop")
+
+
+# Funcion R ---------------------------------------------------------------
+
+# Calculo Funcion R
+r_func <- isla_total %>% arrange(isla, year) %>%
+  group_by(isla) %>%
+  mutate(R = lead(log(suma / lag(suma))))
+
+
+# Graficos ----------------------------------------------------------------
+# Total
+ggplot(r_func) +
+  geom_line(aes(x = suma, y = R, colour = isla), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = isla), size = 2) +
+  xlab("N") + ylab("Growth Rate") + labs(title = "Total de Individuos", subtitle = "Islas") +
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 14),
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
+        legend.position = "none") +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
+  scale_colour_viridis(discrete = TRUE, direction = -1) +
+  facet_wrap(.~ isla, nrow = 1)
