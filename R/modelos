@@ -1,3 +1,31 @@
+# Importar paquetes -------------------------------------------------------
+require(tidyverse)
+require(RColorBrewer)
+require(ggplot2)
+require(ggtext)
+require(cowplot)
+require(viridis)
+require(gt)
+
+# Importar Base de Datos --------------------------------------------------
+df <- read.csv("/media/littlecharlotte/Carlita/Documentos/Proyectos/FIPA/Datos/historicos.csv")
+
+
+# Tablas de Datos ---------------------------------------------------------
+
+## Isla
+# Total individuos por isla, status completo
+isla_total <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total, na.rm = TRUE))
+
+# Funcion R ---------------------------------------------------------------
+
+# Calculo Funcion R
+r_func <- isla_total %>% arrange(isla, year) %>% 
+  group_by(isla) %>% 
+  mutate(R = lead(log(suma / lag(suma))))
+
 # Modelo ------------------------------------------------------------------
 
 #### Robinson Crusoe ####
