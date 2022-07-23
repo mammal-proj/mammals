@@ -24,3 +24,5 @@ BugReports: https://github.com/matcasti/mammals/issues
 Depends: 
     R (>= 2.10)
 LazyData: true
+Imports: 
+    data.table (>= 1.14.2)

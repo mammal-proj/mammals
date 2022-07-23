@@ -9,7 +9,7 @@ require(viridis)
 
 
 # Importar Base de Datos --------------------------------------------------
-df <- mammals::sealions
+df <- jffs::seals
 
 
 # Tablas de Datos ---------------------------------------------------------
