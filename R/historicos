@@ -6,10 +6,10 @@ require(ggplot2)
 require(ggtext)
 require(cowplot)
 require(viridis)
-
+require(gt)
 
 # Importar Base de Datos --------------------------------------------------
-df <- mammals::sealions
+df <- read.csv("/media/littlecharlotte/Carlita/Documentos/Proyectos/FIPA/Datos/historicos.csv")
 
 
 # Tablas de Datos ---------------------------------------------------------
@@ -18,60 +18,60 @@ df <- mammals::sealions
 # para que un año sea consierado como valido tienen que estar presentes las 3 islas censadas
 
 # Total individuos por archipielago, status Completo
-archi_total <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
-  summarise(suma = sum(total, na.rm = TRUE)) %>%
+archi_total <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total, na.rm = TRUE)) %>% 
   filter(n() == 3)
 
 # Total adultos por archipielago, status Completo
-archi_adultos <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
-  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>%
-  mutate(edad = rep("Adultos", length(n()))) %>%
-  filter(n() == 3)
+archi_adultos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Adultos", length(n()))) %>% 
+  filter(n() == 3)  
 
 # Total cachorros por archipielago, status Completo
-archi_cachorros <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
-  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>%
-  mutate(edad = rep("Cachorros", length(n()))) %>%
+archi_cachorros <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Cachorros", length(n()))) %>% 
   filter(n() == 3)
 
 ## Isla
 # Total individuos por isla, status completo
-isla_total <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
+isla_total <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
   summarise(suma = sum(total, na.rm = TRUE))
 
 # Total adultos por isla, status completo
-isla_adultos <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
-  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>%
+isla_adultos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>% 
   mutate(edad = rep("Adultos", length(n())))
 
 # Total cachorros por isla, status completo
-isla_cachorros <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
-  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>%
+isla_cachorros <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>% 
   mutate(edad = rep("Cachorros", length(n())))
 
 ## Playa
 # Total individuos por playa, status completo y parcial, importancia clave
-playa_total <- df %>% group_by(year, isla, lobera) %>%
+playa_total <- df %>% group_by(year, isla, lobera) %>% 
   filter(importancia == "Clave") %>%
-  filter(lobera != "nan") %>%
+  filter(lobera != "nan") %>% 
   summarise(suma = sum(total, na.rm = TRUE))
 
 # Total adultos por playa, status completo y parcial, importancia clave
-playa_adultos <- df %>% group_by(year, isla, lobera) %>%
-  filter(importancia == "Clave") %>%
-  filter(lobera != "nan") %>%
+playa_adultos <- df %>% group_by(year, isla, lobera) %>% 
+  filter(importancia = "Clave") %>%
+  filter(lobera != "nan") %>% 
   summarise(suma = sum(total_adultos, na.rm = TRUE))
 
 # Total cachorros por playa, status completo y parcial, importancia clave
-playa_cachorros <- df %>% group_by(year, isla, lobera) %>%
+playa_cachorros <- df %>% group_by(year, isla, lobera) %>% 
   filter(importancia == "Clave") %>%
-  filter(lobera != "nan") %>%
+  filter(lobera != "nan") %>% 
   summarise(suma = sum(total_cachorros, na.rm = TRUE))
 
 
@@ -90,325 +90,338 @@ playa_cachorros <- df %>% group_by(year, isla, lobera) %>%
 
 ##### no se con que variable calcular los porcentajes, si total adultos o solo la suma de macho y hembra
 
-crudos <- df %>% group_by(year, isla) %>%
-  filter(status == "Completo") %>%
-  summarise(macho = sum(macho, na.rm = TRUE),
-            hembra = sum(hembra, na.rm = TRUE),
-            juveniles = sum(juveniles, na.rm = TRUE),
-            cachorros = sum(cachorros_tierra, cachorros_agua, na.rm = TRUE),
-            total_adultos = sum(total_adultos, na.rm = TRUE),
-            total = sum(total, na.rm = TRUE))
+crudos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(macho = sum(macho, na.rm = TRUE), hembra = sum(hembra, na.rm = TRUE), juveniles = sum(juveniles, na.rm = TRUE), cachorros = sum(cachorros_tierra, cachorros_agua, na.rm = TRUE), total_adultos = sum(total_adultos, na.rm = TRUE), total = sum(total, na.rm = TRUE))
 
-porcentaje_edad <- crudos %>% group_by(year, isla) %>%
-  mutate(macho = (macho * 100 / total_adultos),
-         hembra = (hembra * 100 / total_adultos),
-         juveniles = (juveniles * 100 / total_adultos),
-         cachorros = (cachorros * 100 / total),
-         total_adultos = (total_adultos * 100 / total))
+porcentaje_edad <- crudos %>% group_by(year, isla) %>% 
+  mutate(macho = (macho * 100 / total_adultos), hembra = (hembra * 100 / total_adultos), juveniles = (juveniles * 100 / total_adultos), cachorros = (cachorros * 100 / total), total_adultos = (total_adultos * 100 / total)) 
 
-porcentaje_isla <- crudos %>% group_by(year) %>%
-  summarise(total_macho = sum(macho),
-            total_hembra = sum(hembra),
-            total_juveniles = sum(juveniles),
-            total_cachorros = sum(cachorros),
-            total_adultos = sum(total_adultos),
-            total = sum(total)) %>%
-  inner_join(crudos, by = "year") %>%
-  mutate(macho = (macho * 100 / total_macho),
-         hembra = (hembra * 100 / total_hembra),
-         juveniles = (juveniles * 100 / total_juveniles),
-         cachorros = (cachorros * 100 / total.x),
-         total_adultos = (total_adultos.y * 100 / total.x)) %>%
-  gather(edad, valor, c(9:12, 15))
+porcentaje_isla <- crudos %>% group_by(year) %>% 
+  summarise(total_macho = sum(macho), total_hembra = sum(hembra), total_juveniles = sum(juveniles), total_cachorros = sum(cachorros), total_adultos = sum(total_adultos), total = sum(total)) %>% 
+  inner_join(crudos, by = "year") %>% 
+  mutate(macho = (macho * 100 / total_macho), hembra = (hembra * 100 / total_hembra), juveniles = (juveniles * 100 / total_juveniles), cachorros = (cachorros * 100 / total.x), total_adultos = (total_adultos.y * 100 / total.x)) %>% gather(edad, valor, c(9:12, 15))
 
 
 # Graficos ----------------------------------------------------------------
 
 #### Archipielago ####
 # Total
-ggplot(archi_total) +
-  geom_bar(aes(x = year, y = suma), stat = "identity") +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Archipiélago") +
+ggplot(archi_total) + 
+  geom_bar(aes(x = year, y = suma), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Archipiélago") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
         legend.position = "none")
 
 # Adultos
-ggplot(archi_adultos) +
-  geom_bar(aes(x = year, y = suma), stat = "identity") +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Adultos", subtitle = "Archipiélago") +
+ggplot(archi_adultos) + 
+  geom_bar(aes(x = year, y = suma), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Adultos", subtitle = "Archipiélago") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
         legend.position = "none")
 
 # Cachorros
-ggplot(archi_cachorros) +
-  geom_bar(aes(x = year, y = suma), stat = "identity") +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Cachorros", subtitle = "Archipiélago") +
+ggplot(archi_cachorros) + 
+  geom_bar(aes(x = year, y = suma), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Cachorros", subtitle = "Archipiélago") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
         legend.position = "none")
 
 # Rango Estareo
-ggplot(archi_adultos) +
-  geom_bar(aes(x = year, y = suma, fill = edad), stat = "identity") +
-  geom_bar(data = archi_cachorros, aes(x = year, y = suma, fill = edad), stat = "identity") +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Archipiélago") +
+ggplot(archi_adultos) + 
+  geom_bar(aes(x = year, y = suma, fill = edad), stat = "identity") + 
+  geom_bar(data = archi_cachorros, aes(x = year, y = suma, fill = edad), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Archipiélago") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
   scale_fill_viridis(discrete = TRUE, direction = -1)
 
 
 
 #### Isla ####
 # Total
-ggplot(isla_total) +
+ggplot(isla_total) + 
   geom_line(aes(x = year, y = suma, colour = isla), size = 1) +
   geom_point(aes(x = year, y = suma, colour = isla), size = 2) +
-  # geom_line(aes(x = year, y = log(suma), colour = isla), size = 1) +
-  # geom_point(aes(x = year, y = log(suma), colour = isla), size = 2) +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Islas") +
+  # geom_line(aes(x = year, y = log(suma), colour = isla), size = 1) + 
+  # geom_point(aes(x = year, y = log(suma), colour = isla), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 18), 
+        axis.text = element_text(size = 18), 
         strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+        strip.text = element_textbox(size = 20, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 24, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 18, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 1, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla, nrow = 1)
+
+# Tabla de Abundancia Poblacional
+gt(tibble(isla_total %>% arrange(year) %>% pivot_wider(id_cols = year, names_from = isla, values_from = suma))) %>% 
+  tab_header(
+    title = md("**Abundancia Poblacional**")
+  ) %>% 
+  cols_label(
+    year = "Año",
+    ) %>% 
+  tab_spanner(
+    label = md("*Islas*"), 
+    columns = c("Alejandro Selkirk", "Robinson Crusoe", "Santa Clara")
+    ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
 
 
 # Total Adultos
-ggplot(isla_adultos) +
-  geom_line(aes(x = year, y = suma, colour = isla), size = 1) +
-  geom_point(aes(x = year, y = suma, colour = isla), size = 2) +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Adultos", subtitle = "Islas") +
+ggplot(isla_adultos) + 
+  geom_line(aes(x = year, y = suma, colour = isla), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = isla), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Adultos", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla, nrow = 1)
 
 
 # Total Cachorros
-ggplot(isla_cachorros) +
-  geom_line(aes(x = year, y = suma, colour = isla), size = 1) +
-  geom_point(aes(x = year, y = suma, colour = isla), size = 2) +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Cachorros", subtitle = "Islas") +
+ggplot(isla_cachorros) + 
+  geom_line(aes(x = year, y = suma, colour = isla), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = isla), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos Cachorros", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla, nrow = 1)
 
 
 # Rango Estareo serie
-ggplot(isla_adultos) +
-  geom_line(aes(x = year, y = suma, colour = edad), size = 1) +
-  geom_point(aes(x = year, y = suma, colour = edad), size = 2) +
-  geom_line(data = isla_cachorros, aes(x = year, y = suma, colour = edad), size = 1) +
-  geom_point(data = isla_cachorros, aes(x = year, y = suma, colour = edad), size = 2) +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Islas") +
+ggplot(isla_adultos) + 
+  geom_line(aes(x = year, y = suma, colour = edad), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = edad), size = 2) + 
+  geom_line(data = isla_cachorros, aes(x = year, y = suma, colour = edad), size = 1) + 
+  geom_point(data = isla_cachorros, aes(x = year, y = suma, colour = edad), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla, nrow = 1)
 
 
 
-# Rango Estareo barras
-ggplot(isla_adultos) +
-  geom_bar(aes(x = year, y = suma, fill = isla), stat = "identity") +
-  geom_bar(data = isla_cachorros, aes(x = year, y = suma, fill = isla), stat = "identity") +
-  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Islas") +
+# Rango Estareo barras 
+ggplot(isla_adultos) + 
+  geom_bar(aes(x = year, y = suma, fill = isla), stat = "identity") + 
+  geom_bar(data = isla_cachorros, aes(x = year, y = suma, fill = isla), stat = "identity") + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos por rango etareo", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  scale_fill_viridis(discrete = TRUE, direction = -1) +
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ edad, nrow = 1)
 
 
 #### Playa ####
 # Total
-ggplot(playa_total) +
-  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) +
-  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) +
-  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos", subtitle = "Playa") +
+ggplot(playa_total) + 
+  geom_line(aes(x = year, y = suma, colour = lobera), size = 1) + 
+  geom_point(aes(x = year, y = suma, colour = lobera), size = 2) + 
+  xlab("Años") + ylab("N") + labs(title = "Total de Individuos", subtitle = "Playa") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
-  facet_wrap(.~ isla * lobera, nrow = 5)
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla * lobera, nrow = 3) 
+
+
+# Tabla de Abundancia Poblacional
+gt(tibble(playa_total %>% arrange(year) %>% pivot_wider(id_cols = year, names_from = lobera, values_from = suma))) %>% 
+  tab_header(
+    title = md("**Abundancia Poblacional**")
+  ) %>% 
+  cols_label(
+    year = "Año",
+  ) %>% 
+  tab_spanner(label = "Alejandro Selkirk", columns = 2:4) %>% 
+  tab_spanner(label = "Robinson Crusoe", columns = 5:9) %>% 
+  tab_spanner(label = "Santa Clara", columns = 10:12) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
 
 
 # Total Adultos
-ggplot(playa_adultos) +
-  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) +
-  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) +
-  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Adultos", subtitle = "Playa") +
+ggplot(playa_adultos) + 
+  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Adultos", subtitle = "Playa") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla * lobera, nrow = 5)
 
 
 # Total Cachorros
-ggplot(playa_cachorros) +
-  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) +
-  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) +
-  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Cachorros", subtitle = "Playa") +
+ggplot(playa_cachorros) + 
+  geom_line(aes(x = year, y = log(suma), colour = lobera), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), colour = lobera), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Cachorros", subtitle = "Playa") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla * lobera, nrow = 5)
 
 
 # Total Cachorros vs N total
-ggplot(playa_cachorros) +
-  geom_line(aes(x = year, y = log(suma), color = 'Cachorros'), size = 1) +
-  geom_point(aes(x = year, y = log(suma), color = 'Cachorros'), size = 2) +
-  geom_line(data = playa_total, aes(x = year, y = log(suma), color = 'Total'), size = 1) +
-  geom_point(data = playa_total, aes(x = year, y = log(suma), color = 'Total'), size = 2) +
-  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Cachorros vs Individuos Totales", subtitle = "Playa") +
+ggplot(playa_cachorros) + 
+  geom_line(aes(x = year, y = log(suma), color = 'Cachorros'), size = 1) + 
+  geom_point(aes(x = year, y = log(suma), color = 'Cachorros'), size = 2) + 
+  geom_line(data = playa_total, aes(x = year, y = log(suma), color = 'Total'), size = 1) + 
+  geom_point(data = playa_total, aes(x = year, y = log(suma), color = 'Total'), size = 2) + 
+  xlab("Años") + ylab("LN(N)") + labs(title = "Total de Individuos Cachorros vs Individuos Totales", subtitle = "Playa") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 14, hjust = 0.5),
-        legend.direction = "horizontal") +
+        legend.text = element_text(size = 14, hjust = 0.5), 
+        legend.direction = "horizontal") + 
   scale_color_viridis(name = '',
-                     labels = c('Cachorros', 'Total'),
+                     labels = c('Cachorros', 'Total'), 
                      discrete = TRUE, direction = -1) +
   facet_wrap(.~ isla * lobera, nrow = 5)
 
@@ -416,49 +429,936 @@ ggplot(playa_cachorros) +
 
 #### Porcentajes ####
 # Adultos vs Cachorros por Isla
-ggplot(porcentaje_isla %>% filter(!is.nan(porcentaje_isla$valor))) +
-  geom_bar(aes(x = year, y = valor, fill = isla), stat = "identity", size = 1) +
-  xlab("Años") + ylab("Porcentaje (%)") + labs(title = "Total de Individuos", subtitle = "Islas") +
+ggplot(porcentaje_isla %>% filter(!is.nan(porcentaje_isla$valor))) + 
+  geom_bar(aes(x = year, y = valor, fill = isla), stat = "identity", size = 1) + 
+  xlab("Años") + ylab("Porcentaje (%)") + labs(title = "Total de Individuos", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  scale_fill_viridis(discrete = TRUE, direction = -1) +
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ edad, nrow = 2)
 
 
 # Macho vs Hembras por Isla
-ggplot(porcentaje_isla %>% filter(edad != "cachorros", edad != "total_adultos", edad != "total")) +
-  geom_bar(aes(x = year, y = valor, fill = isla), stat = "identity", size = 1) +
-  xlab("Años") + ylab("Porcentaje (%)") + labs(title = "Total de Individuos", subtitle = "Islas") +
+ggplot(porcentaje_isla %>% filter(edad != "cachorros", edad != "total_adultos", edad != "total")) + 
+  geom_bar(aes(x = year, y = valor, fill = isla), stat = "identity", size = 1) + 
+  xlab("Años") + ylab("Porcentaje (%)") + labs(title = "Total de Individuos", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  scale_fill_viridis(discrete = TRUE, direction = -1) +
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  scale_fill_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ edad, nrow = 2)
 
+
+
+# Funcion R ---------------------------------------------------------------
+
+# Calculo Funcion R
+r_func <- isla_total %>% arrange(isla, year) %>% 
+  group_by(isla) %>% 
+  mutate(R = lead(log(suma / lag(suma))))
+
+
+# Graficos ----------------------------------------------------------------
+# Total
+ggplot(r_func) + 
+  geom_line(aes(x = suma, y = R, colour = isla), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = isla), size = 2) + 
+  # geom_smooth(aes(x = suma, y = R), method = "lm", color = "darkgrey", se = FALSE) + 
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Función-R", subtitle = "Islas") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+
+# Modelo ------------------------------------------------------------------
+
+#### Robinson Crusoe ####
+
+RC <- r_func %>% filter(isla == "Robinson Crusoe", !is.na(R))
+
+# ajuste de parámetros
+Nt <- RC$suma # definimos Nt a partir de la cantidad de humanos
+t <- seq(1, length(Nt)) # definimos el parámetro t a partir de la cantidad de Years BP desde el presente
+
+## Exponencial
+expo <- nls(R ~ r * t, data = RC, start = c(r = 0.1), trace = TRUE) 
+summary(expo)
+aic_expo <- AIC(expo)
+
+# calculo pseudo R2
+r2_expo <- cor(predict(expo), RC$R) ^ 2
+
+# calculo valores predichos
+pd_expo <- predict(expo)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(RC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_expo, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_expo, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(RC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_expo, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_expo, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Competencia
+comp <- nls(R ~ b * (1 - (suma/k)), data = RC, start = c(b = 0.1, k = 0.1), trace = TRUE)
+summary(comp)
+aic_comp <- AIC(comp)
+
+# calculo pseudo R2
+r2_comp <- cor(predict(comp), RC$R) ^ 2 
+
+# calculo valores predichos
+pd_comp <- predict(comp)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(RC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_comp, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(RC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_comp, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Cooperacion
+coop <- nls(R ~ b * (1 - (A/suma)), data = RC, start = c(b = 0.1, A = 0.1), trace = TRUE)
+summary(coop)
+aic_coop <- AIC(coop)
+
+# calculo pseudo R2
+r2_coop <- cor(predict(coop), RC$R) ^ 2 
+
+# calculo valores predichos
+pd_coop <- predict(coop)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(RC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_coop, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(RC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_coop, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Cooperacion y Competencia
+coop_comp <- nls(R ~ b * (1 - (A/suma)) * (1 - (suma/k)) , data = RC, start = c(b = 0.1, k = 0.1, A = 0.1), trace = TRUE)
+summary(coop_comp)
+aic_coop_comp <- AIC(coop_comp)
+
+# calculo pseudo R2
+r2_coop_comp <- cor(predict(coop_comp), RC$R) ^ 2 
+
+# calculo valores predichos
+pd_coop_comp <- predict(coop_comp)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(RC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(RC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Robinson Crusoe") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# tabla de estadistios de ajuste
+tabla <- gt(tibble(Modelo = c("Exponencial", "Competencia", "Cooperacion", "Cooperacion-Competencia"), AIC = c(aic_expo, aic_comp, aic_coop, aic_coop_comp), pseudo_R2 = c(r2_expo, r2_comp, r2_coop, r2_coop_comp))) %>%
+  tab_header(
+    title = md("**Estadísticos de los Modelos**"),
+    subtitle = md("*Robinson Crusoe*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
+  par <- gt(tibble(parametros = c("Rmax", "k", "A"), valores = coop_comp$m$getAllPars())) %>% 
+  tab_header(
+  title = md("**Modelo Cooperación-Competencia**"),
+  subtitle = md("*Robinson Crusoe*")
+) %>% 
+    tab_options(column_labels.font.weight = "bold") %>% 
+    opt_row_striping(row_striping = TRUE)
+  
+
+#### Alejandro Selkirk ####
+
+AS <- r_func %>% filter(isla == "Alejandro Selkirk", !is.na(R))
+
+# ajuste de parámetros
+Nt <- AS$suma # definimos Nt a partir de la cantidad de humanos
+t <- seq(1, length(Nt)) # definimos el parámetro t a partir de la cantidad de Years BP desde el presente
+
+## Exponencial
+expo <- nls(R ~ r * t, data = AS, start = c(r = 0.1), trace = TRUE) 
+summary(expo)
+aic_expo <- AIC(expo)
+
+# calculo pseudo R2
+r2_expo <- cor(predict(expo), AS$R) ^ 2
+
+# calculo valores predichos
+pd_expo <- predict(expo)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(AS) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_expo, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_expo, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(AS) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_expo, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_expo, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Competencia
+comp <- nls(R ~ b * (1 - (suma/k)), data = AS, start = c(b = 0.1, k = 0.1), trace = TRUE)
+summary(comp)
+aic_comp <- AIC(comp)
+
+# calculo pseudo R2
+r2_comp <- cor(predict(comp), AS$R) ^ 2 
+
+# calculo valores predichos
+pd_comp <- predict(comp)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(AS) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_comp, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(AS) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_comp, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Cooperacion
+coop <- nls(R ~ b * (1 - (A/suma)), data = AS, start = c(b = 0.1, A = 0.1), trace = TRUE)
+summary(coop)
+aic_coop <- AIC(coop)
+
+# calculo pseudo R2
+r2_coop <- cor(predict(coop), AS$R) ^ 2 
+
+# calculo valores predichos
+pd_coop <- predict(coop)
+
+# grafico de valores observados vs predichos
+ggplot(AS) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_coop, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(AS) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_coop, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Competencia y Cooperacion
+coop_comp <- nls(R ~ b * (1 - (suma/k)) * (1 - (A/suma)), data = AS, start = c(b = 0.1, k = 0.1, A = 0.01), trace = TRUE)
+summary(coop_comp)
+aic_coop_comp <- AIC(coop_comp)
+
+# calculo pseudo R2
+r2_coop_comp <- cor(predict(coop_comp), AS$R) ^ 2 
+
+# calculo valores predichos
+pd_coop_comp <- predict(coop_comp)
+
+# grafico de valores observados vs predichos
+ggplot(AS) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(AS) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Alejandro Selkirk") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+# tabla de estadistios de ajuste
+tabla <- gt(tibble(Modelo = c("Exponencial", "Competencia", "Cooperacion", "Cooperacion-Competencia"), AIC = c(aic_expo, aic_comp, aic_coop, aic_coop_comp), pseudo_R2 = c(r2_expo, r2_comp, r2_coop, r2_coop_comp))) %>%
+  tab_header(
+    title = md("**Estadísticos de los Modelos**"),
+    subtitle = md("*Alejandro Selkirk*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
+par <- gt(tibble(parametros = c("Rmax", "k", "A"), valores = coop_comp$m$getAllPars())) %>% 
+  tab_header(
+    title = md("**Modelo Cooperación-Competencia**"),
+    subtitle = md("*Alejandro Selkirk*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
+
+#### Santa Clara ####
+
+SC <- r_func %>% filter(isla == "Santa Clara", !is.na(R))
+
+# ajuste de parámetros
+Nt <- SC$suma # definimos Nt a partir de la cantidad de humanos
+t <- seq(1, length(Nt)) # definimos el parámetro t a partir de la cantidad de Years BP desde el presente
+
+## Exponencial
+expo <- nls(R ~ r * t, data = SC, start = c(r = 0.1), trace = TRUE) 
+summary(expo)
+aic_expo <- AIC(expo)
+
+# calculo pseudo R2
+r2_expo <- cor(predict(expo), SC$R) ^ 2
+
+# calculo valores predichos
+pd_expo <- predict(expo)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(SC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_expo, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_expo, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(SC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_expo, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_expo, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Competencia
+comp <- nls(R ~ b * (1 - (suma/k)), data = SC, start = c(b = 0.1, k = 0.1), trace = TRUE)
+summary(comp)
+aic_comp <- AIC(comp)
+
+# calculo pseudo R2
+r2_comp <- cor(predict(comp), SC$R) ^ 2 
+
+# calculo valores predichos
+pd_comp <- predict(comp)
+
+# grafico de valores observados vs predichos
+# R vs N
+ggplot(SC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_comp, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(SC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_comp, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Cooperacion
+coop <- nls(R ~ b * (1 - (A/suma)), data = SC, start = c(b = 0.1, A = 0.1), trace = TRUE)
+summary(coop)
+aic_coop <- AIC(coop)
+
+# calculo pseudo R2
+r2_coop <- cor(predict(coop), SC$R) ^ 2 
+
+# calculo valores predichos
+pd_coop <- predict(coop)
+
+# grafico de valores observados vs predichos
+ggplot(SC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_coop, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(SC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_coop, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+## Competencia y Cooperacion
+coop_comp <- nls(R ~ b * (1 - (suma/k)) * (1 - (A/suma)), data = SC, start = c(b = 0.1, k = 0.1, A = 0.1), trace = TRUE)
+summary(coop_comp)
+aic_coop_comp <- AIC(coop_comp)
+
+# calculo pseudo R2
+r2_coop_comp <- cor(predict(coop_comp), SC$R) ^ 2 
+
+# calculo valores predichos
+pd_coop_comp <- predict(coop_comp)
+
+# grafico de valores observados vs predichos
+ggplot(SC) + 
+  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+# R vs t
+ggplot(SC) + 
+  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
+  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
+  geom_line(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Santa Clara") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
+        legend.justification = "center",
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1)
+
+
+# tabla de estadistios de ajuste
+tabla <- gt(tibble(Modelo = c("Exponencial", "Competencia", "Cooperacion", "Cooperacion-Competencia"), AIC = c(aic_expo, aic_comp, aic_coop, aic_coop_comp), pseudo_R2 = c(r2_expo, r2_comp, r2_coop, r2_coop_comp))) %>%
+  tab_header(
+    title = md("**Estadísticos de los Modelos**"),
+    subtitle = md("*Santa Clara*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
+par <- gt(tibble(parametros = c("Rmax", "k", "A"), valores = coop_comp$m$getAllPars())) %>% 
+  tab_header(
+    title = md("**Modelo Cooperación-Competencia**"),
+    subtitle = md("*Santa Clara*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
