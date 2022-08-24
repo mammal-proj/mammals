@@ -24,13 +24,13 @@ isla_total <- df %>%
 # Total adultos por isla, status completo
 isla_adultos <- df %>% group_by(year, isla) %>% 
   filter(status == "Completo") %>% 
-  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE), .groups = "drop") %>% 
   mutate(edad = rep("Adultos", length(n())))
 
 # Total cachorros por isla, status completo
 isla_cachorros <- df %>% group_by(year, isla) %>% 
   filter(status == "Completo") %>% 
-  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE), .groups = "drop") %>% 
   mutate(edad = rep("Cachorros", length(n())))
 
 ## Archipielago
