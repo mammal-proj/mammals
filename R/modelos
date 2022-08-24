@@ -41,273 +41,216 @@ Nt <- RC$suma # definimos Nt a partir de la cantidad de humanos
 t <- seq(1, length(Nt)) # definimos el parámetro t a partir de la cantidad de Years BP desde el presente
 
 ## Exponencial
-expo <- nls(R ~ r * t, data = RC, start = c(r = 0.1), trace = TRUE)
-summary(expo)
-aic_expo <- AIC(expo)
+expo_RC <- nls(R ~ r * t, data = RC, start = c(r = 0.1), trace = TRUE) 
+summary(expo_RC)
+aic_expo_RC <- AIC(expo_RC)
 
 # calculo pseudo R2
-r2_expo <- cor(predict(expo), RC$R) ^ 2
+r2_expo_RC <- cor(predict(expo_RC), RC$R) ^ 2
 
 # calculo valores predichos
-pd_expo <- predict(expo)
+pd_expo_RC <- predict(expo_RC)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(RC) +
+ggplot(RC) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_expo, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_expo, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Exponencial", subtitle = "Robinson Crusoe") +
+  geom_line(aes(x = suma, y = pd_expo_RC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_expo_RC, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Robinson Crusoe") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#22A884FF", "#414487FF"))
+
 
 # R vs t
-ggplot(RC) +
+ggplot(RC) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_expo, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_expo, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Exponencial", subtitle = "Robinson Crusoe") +
+  geom_line(aes(x = year, y = pd_expo_RC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_expo_RC, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Robinson Crusoe") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#22A884FF", "#414487FF"))
 
 ## Competencia
-comp <- nls(R ~ b * (1 - (suma/k)), data = RC, start = c(b = 0.1, k = 0.1), trace = TRUE)
-summary(comp)
-aic_comp <- AIC(comp)
+comp_RC <- nls(R ~ b * (1 - (suma/k)), data = RC, start = c(b = 0.1, k = 0.1), trace = TRUE)
+summary(comp_RC)
+aic_comp_RC <- AIC(comp_RC)
 
 # calculo pseudo R2
-r2_comp <- cor(predict(comp), RC$R) ^ 2
+r2_comp_RC <- cor(predict(comp_RC), RC$R) ^ 2 
 
 # calculo valores predichos
-pd_comp <- predict(comp)
+pd_comp_RC <- predict(comp_RC)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(RC) +
+ggplot(RC) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_comp, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Competencia", subtitle = "Robinson Crusoe") +
+  geom_line(aes(x = suma, y = pd_comp_RC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_comp_RC, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Robinson Crusoe") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#22A884FF", "#414487FF"))
 
 # R vs t
-ggplot(RC) +
+ggplot(RC) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_comp, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Competencia", subtitle = "Robinson Crusoe") +
+  geom_line(aes(x = year, y = pd_comp_RC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_comp_RC, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Robinson Crusoe") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#22A884FF", "#414487FF"))
 
 ## Cooperacion
-coop <- nls(R ~ b * (1 - (A/suma)), data = RC, start = c(b = 0.1, A = 0.1), trace = TRUE)
-summary(coop)
-aic_coop <- AIC(coop)
+coop_RC <- nls(R ~ b * (1 - (A/suma)), data = RC, start = c(b = 0.1, A = 0.1), trace = TRUE)
+summary(coop_RC)
+aic_coop_RC <- AIC(coop_RC)
 
 # calculo pseudo R2
-r2_coop <- cor(predict(coop), RC$R) ^ 2
+r2_coop_RC <- cor(predict(coop_RC), RC$R) ^ 2 
 
 # calculo valores predichos
-pd_coop <- predict(coop)
+pd_coop_RC <- predict(coop_RC)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(RC) +
+ggplot(RC) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_coop, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_coop, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Cooperación", subtitle = "Robinson Crusoe") +
+  geom_line(aes(x = suma, y = pd_coop_RC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop_RC, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Robinson Crusoe") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#22A884FF", "#414487FF"))
 
 # R vs t
-ggplot(RC) +
+ggplot(RC) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_coop, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_coop, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Cooperación", subtitle = "Robinson Crusoe") +
+  geom_line(aes(x = year, y = pd_coop_RC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop_RC, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Robinson Crusoe") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#22A884FF", "#414487FF"))
 
-
-## Cooperacion y Competencia
-coop_comp <- nls(R ~ b * (1 - (A/suma)) * (1 - (suma/k)) , data = RC, start = c(b = 0.1, k = 0.1, A = 0.1), trace = TRUE)
-summary(coop_comp)
-aic_coop_comp <- AIC(coop_comp)
-
-# calculo pseudo R2
-r2_coop_comp <- cor(predict(coop_comp), RC$R) ^ 2
-
-# calculo valores predichos
-pd_coop_comp <- predict(coop_comp)
-
-# grafico de valores observados vs predichos
-# R vs N
-ggplot(RC) +
-  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
-  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Robinson Crusoe") +
-  theme_half_open(12) +
-  background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
-        legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
-# R vs t
-ggplot(RC) +
-  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
-  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Robinson Crusoe") +
-  theme_half_open(12) +
-  background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
-        legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
 
 # tabla de estadistios de ajuste
-tabla <- gt(tibble(Model = c("Exponencial", "Competencia", "Cooperacion", "Cooperacion-Competencia"), AIC = c(aic_expo, aic_comp, aic_coop, aic_coop_comp), pseudo_R2 = c(r2_expo, r2_comp, r2_coop, r2_coop_comp)))
-
-tabla %>%
+tabla <- gt(tibble(Modelo = c("Exponencial", "Competencia", "Cooperacion"), AIC = c(aic_expo_RC, aic_comp_RC, aic_coop_RC), pseudo_R2 = c(r2_expo_RC, r2_comp_RC, r2_coop_RC))) %>%
   tab_header(
-    title = md("**Estadísticos del Modelo**"),
-    subtitle = md("*Isla Robinson Crusoe*")
-  )
+    title = md("**Estadísticos de los Modelos**"),
+    subtitle = md("*Robinson Crusoe*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
 
+  par <- gt(tibble(parametros = c("Rmax", "k"), valores = comp_RC$m$getAllPars())) %>% 
+  tab_header(
+  title = md("**Modelo Cooperación-Competencia**"),
+  subtitle = md("*Robinson Crusoe*")
+) %>% 
+    tab_options(column_labels.font.weight = "bold") %>% 
+    opt_row_striping(row_striping = TRUE)
+  
 
 #### Alejandro Selkirk ####
 
@@ -318,271 +261,216 @@ Nt <- AS$suma # definimos Nt a partir de la cantidad de humanos
 t <- seq(1, length(Nt)) # definimos el parámetro t a partir de la cantidad de Years BP desde el presente
 
 ## Exponencial
-expo <- nls(R ~ r * t, data = AS, start = c(r = 0.1), trace = TRUE)
-summary(expo)
-aic_expo <- AIC(expo)
+expo_AS <- nls(R ~ r * t, data = AS, start = c(r = 0.1), trace = TRUE) 
+summary(expo_AS)
+aic_expo_AS <- AIC(expo_AS)
 
 # calculo pseudo R2
-r2_expo <- cor(predict(expo), AS$R) ^ 2
+r2_expo_AS <- cor(predict(expo_AS), AS$R) ^ 2
 
 # calculo valores predichos
-pd_expo <- predict(expo)
+pd_expo_AS <- predict(expo_AS)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(AS) +
+ggplot(AS) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_expo, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_expo, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Exponencial", subtitle = "Alejandro Selkirk") +
+  geom_line(aes(x = suma, y = pd_expo_AS, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_expo_AS, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Alejandro Selkirk") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#FDE725FF", "#414487FF"))
+
 
 # R vs t
-ggplot(AS) +
+ggplot(AS) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_expo, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_expo, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Exponencial", subtitle = "Alejandro Selkirk") +
+  geom_line(aes(x = year, y = pd_expo_AS, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_expo_AS, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Alejandro Selkirk") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#FDE725FF", "#414487FF"))
 
 ## Competencia
-comp <- nls(R ~ b * (1 - (suma/k)), data = AS, start = c(b = 0.1, k = 0.1), trace = TRUE)
-summary(comp)
-aic_comp <- AIC(comp)
+comp_AS <- nls(R ~ b * (1 - (suma/k)), data = AS, start = c(b = 0.1, k = 0.1), trace = TRUE)
+summary(comp_AS)
+aic_comp_AS <- AIC(comp_AS)
 
 # calculo pseudo R2
-r2_comp <- cor(predict(comp), AS$R) ^ 2
+r2_comp_AS <- cor(predict(comp_AS), AS$R) ^ 2 
 
 # calculo valores predichos
-pd_comp <- predict(comp)
+pd_comp_AS <- predict(comp_AS)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(AS) +
+ggplot(AS) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_comp, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Competencia", subtitle = "Alejandro Selkirk") +
+  geom_line(aes(x = suma, y = pd_comp_AS, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_comp_AS, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Alejandro Selkirk") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#FDE725FF", "#414487FF"))
+
 
 # R vs t
-ggplot(AS) +
+ggplot(AS) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_comp, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Competencia", subtitle = "Alejandro Selkirk") +
+  geom_line(aes(x = year, y = pd_comp_AS, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_comp_AS, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Alejandro Selkirk") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#FDE725FF", "#414487FF"))
 
 
 ## Cooperacion
-coop <- nls(R ~ b * (1 - (A/suma)), data = AS, start = c(b = 0.1, A = 0.1), trace = TRUE)
-summary(coop)
-aic_coop <- AIC(coop)
+coop_AS <- nls(R ~ b * (1 - (A/suma)), data = AS, start = c(b = 0.1, A = 0.1), trace = TRUE)
+summary(coop_AS)
+aic_coop_AS <- AIC(coop_AS)
 
 # calculo pseudo R2
-r2_coop <- cor(predict(coop), AS$R) ^ 2
+r2_coop_AS <- cor(predict(coop_AS), AS$R) ^ 2 
 
 # calculo valores predichos
-pd_coop <- predict(coop)
+pd_coop_AS <- predict(coop_AS)
 
 # grafico de valores observados vs predichos
-ggplot(AS) +
+ggplot(AS) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_coop, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_coop, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Cooperación", subtitle = "Alejandro Selkirk") +
+  geom_line(aes(x = suma, y = pd_coop_AS, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop_AS, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Alejandro Selkirk") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#FDE725FF", "#414487FF"))
 
 # R vs t
-ggplot(AS) +
+ggplot(AS) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_coop, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_coop, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Cooperación", subtitle = "Alejandro Selkirk") +
+  geom_line(aes(x = year, y = pd_coop_AS, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop_AS, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Alejandro Selkirk") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
-
-## Competencia y Cooperacion
-coop_comp <- nls(R ~ b * (1 - (suma/k)) * (1 - (A/suma)), data = AS, start = c(b = 0.1, k = 0.1, A = 0.01), trace = TRUE)
-summary(coop_comp)
-aic_coop_comp <- AIC(coop_comp)
-
-# calculo pseudo R2
-r2_coop_comp <- cor(predict(coop_comp), AS$R) ^ 2
-
-# calculo valores predichos
-pd_coop_comp <- predict(coop_comp)
-
-# grafico de valores observados vs predichos
-ggplot(AS) +
-  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
-  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Alejandro Selkirk") +
-  theme_half_open(12) +
-  background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
-        legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
-# R vs t
-ggplot(AS) +
-  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
-  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Alejandro Selkirk") +
-  theme_half_open(12) +
-  background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
-        legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#FDE725FF", "#414487FF"))
 
 
 # tabla de estadistios de ajuste
-tabla <- gt(tibble(Model = c("Exponencial", "Competencia", "Cooperacion", "Cooperacion-Competencia"), AIC = c(aic_expo, aic_comp, aic_coop, aic_coop_comp), pseudo_R2 = c(r2_expo, r2_comp, r2_coop, r2_coop_comp)))
-
-tabla %>%
+tabla <- gt(tibble(Modelo = c("Exponencial", "Competencia", "Cooperacion"), AIC = c(aic_expo_AS, aic_comp_AS, aic_coop_AS), pseudo_R2 = c(r2_expo_AS, r2_comp_AS, r2_coop_AS))) %>%
   tab_header(
-    title = md("**Estadísticos del Modelo**"),
-    subtitle = md("*Isla Alejandro Selkirk*")
-  )
+    title = md("**Estadísticos de los Modelos**"),
+    subtitle = md("*Alejandro Selkirk*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
+par <- gt(tibble(parametros = c("Rmax", "k"), valores = comp_AS$m$getAllPars())) %>% 
+  tab_header(
+    title = md("**Modelo Cooperación-Competencia**"),
+    subtitle = md("*Alejandro Selkirk*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
 
 
 #### Santa Clara ####
@@ -594,268 +482,212 @@ Nt <- SC$suma # definimos Nt a partir de la cantidad de humanos
 t <- seq(1, length(Nt)) # definimos el parámetro t a partir de la cantidad de Years BP desde el presente
 
 ## Exponencial
-expo <- nls(R ~ r * t, data = SC, start = c(r = 0.1), trace = TRUE)
-summary(expo)
-aic_expo <- AIC(expo)
+expo_SC <- nls(R ~ r * t, data = SC, start = c(r = 0.1), trace = TRUE) 
+summary(expo_SC)
+aic_expo_SC <- AIC(expo_SC)
 
 # calculo pseudo R2
-r2_expo <- cor(predict(expo), SC$R) ^ 2
+r2_expo_SC <- cor(predict(expo_SC), SC$R) ^ 2
 
 # calculo valores predichos
-pd_expo <- predict(expo)
+pd_expo_SC <- predict(expo_SC)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(SC) +
+ggplot(SC) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_expo, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_expo, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Exponencial", subtitle = "Santa Clara") +
+  geom_line(aes(x = suma, y = pd_expo_SC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_expo_SC, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Santa Clara") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#440154FF", "#414487FF"))
 
 # R vs t
-ggplot(SC) +
+ggplot(SC) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_expo, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_expo, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Exponencial", subtitle = "Santa Clara") +
+  geom_line(aes(x = year, y = pd_expo_SC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_expo_SC, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Exponencial", subtitle = "Santa Clara") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#440154FF", "#414487FF"))
 
 ## Competencia
-comp <- nls(R ~ b * (1 - (suma/k)), data = SC, start = c(b = 0.1, k = 0.1), trace = TRUE)
-summary(comp)
-aic_comp <- AIC(comp)
+comp_SC <- nls(R ~ b * (1 - (suma/k)), data = SC, start = c(b = 0.1, k = 0.1), trace = TRUE)
+summary(comp_SC)
+aic_comp_SC <- AIC(comp_SC)
 
 # calculo pseudo R2
-r2_comp <- cor(predict(comp), SC$R) ^ 2
+r2_comp_SC <- cor(predict(comp_SC), SC$R) ^ 2 
 
 # calculo valores predichos
-pd_comp <- predict(comp)
+pd_comp_SC <- predict(comp_SC)
 
 # grafico de valores observados vs predichos
 # R vs N
-ggplot(SC) +
+ggplot(SC) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_comp, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Competencia", subtitle = "Santa Clara") +
+  geom_line(aes(x = suma, y = pd_comp_SC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_comp_SC, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Santa Clara") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#440154FF", "#414487FF"))
+
 
 # R vs t
-ggplot(SC) +
+ggplot(SC) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_comp, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Competencia", subtitle = "Santa Clara") +
+  geom_line(aes(x = year, y = pd_comp_SC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_comp_SC, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Competencia", subtitle = "Santa Clara") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#440154FF", "#414487FF"))
 
 
 ## Cooperacion
-coop <- nls(R ~ b * (1 - (A/suma)), data = SC, start = c(b = 0.1, A = 0.1), trace = TRUE)
-summary(coop)
-aic_coop <- AIC(coop)
+coop_SC <- nls(R ~ b * (1 - (A/suma)), data = SC, start = c(b = 0.1, A = 0.1), trace = TRUE)
+summary(coop_SC)
+aic_coop_SC <- AIC(coop_SC)
 
 # calculo pseudo R2
-r2_coop <- cor(predict(coop), SC$R) ^ 2
+r2_coop_SC <- cor(predict(coop_SC), SC$R) ^ 2 
 
 # calculo valores predichos
-pd_coop <- predict(coop)
+pd_coop_SC <- predict(coop_SC)
 
 # grafico de valores observados vs predichos
-ggplot(SC) +
+ggplot(SC) + 
   geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_coop, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_coop, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Cooperación", subtitle = "Santa Clara") +
+  geom_line(aes(x = suma, y = pd_coop_SC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = suma, y = pd_coop_SC, colour = "predichos"), size = 2) +
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Santa Clara") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#440154FF", "#414487FF"))
 
 # R vs t
-ggplot(SC) +
+ggplot(SC) + 
   geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
   geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_coop, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_coop, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Cooperación", subtitle = "Santa Clara") +
+  geom_line(aes(x = year, y = pd_coop_SC, colour = "predichos"), size = 1) +
+  geom_point(aes(x = year, y = pd_coop_SC, colour = "predichos"), size = 2) +
+  xlab("Años") + ylab("Tasa de Crecimiento") + labs(title = "Modelo Cooperación", subtitle = "Santa Clara") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "bottom", 
+        legend.title = element_blank(), 
         legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
-
-## Competencia y Cooperacion
-coop_comp <- nls(R ~ b * (1 - (suma/k)) * (1 - (A/suma)), data = SC, start = c(b = 0.1, k = 0.1, A = 0.1), trace = TRUE)
-summary(coop_comp)
-aic_coop_comp <- AIC(coop_comp)
-
-# calculo pseudo R2
-r2_coop_comp <- cor(predict(coop_comp), SC$R) ^ 2
-
-# calculo valores predichos
-pd_coop_comp <- predict(coop_comp)
-
-# grafico de valores observados vs predichos
-ggplot(SC) +
-  geom_line(aes(x = suma, y = R, colour = "observados"), size = 1) +
-  geom_point(aes(x = suma, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = suma, y = pd_coop_comp, colour = "predichos"), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Santa Clara") +
-  theme_half_open(12) +
-  background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
-        legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
-
-# R vs t
-ggplot(SC) +
-  geom_line(aes(x = year, y = R, colour = "observados"), size = 1) +
-  geom_point(aes(x = year, y = R, colour = "observados"), size = 2) +
-  geom_line(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 1) +
-  geom_point(aes(x = year, y = pd_coop_comp, colour = "predichos"), size = 2) +
-  xlab("Años") + ylab("Growth Rate") + labs(title = "Modelo Cooperación-Competencia", subtitle = "Santa Clara") +
-  theme_half_open(12) +
-  background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        strip.background = element_blank(),
-        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "bottom",
-        legend.title = element_blank(),
-        legend.justification = "center",
-        legend.text = element_text(size = 16, hjust = 0.5),
-        legend.direction = "horizontal") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1)
+        legend.text = element_text(size = 16, hjust = 0.5), 
+        legend.direction = "horizontal") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_color_manual(values = c("#440154FF", "#414487FF"))
 
 
 # tabla de estadistios de ajuste
-tabla <- gt(tibble(Model = c("Exponencial", "Competencia", "Cooperacion", "Cooperacion-Competencia"), AIC = c(aic_expo, aic_comp, aic_coop, aic_coop_comp), pseudo_R2 = c(r2_expo, r2_comp, r2_coop, r2_coop_comp)))
-
-tabla %>%
+tabla <- gt(tibble(Modelo = c("Exponencial", "Competencia", "Cooperacion"), AIC = c(aic_expo_SC, aic_comp_SC, aic_coop_SC), pseudo_R2 = c(r2_expo_SC, r2_comp_SC, r2_coop_SC))) %>%
   tab_header(
-    title = md("**Estadísticos del Modelo**"),
-    subtitle = md("*Isla Santa Clara*")
-  )
+    title = md("**Estadísticos de los Modelos**"),
+    subtitle = md("*Santa Clara*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
+
+par <- gt(tibble(parametros = c("Rmax", "k"), valores = comp_SC$m$getAllPars())) %>% 
+  tab_header(
+    title = md("**Modelo Cooperación-Competencia**"),
+    subtitle = md("*Santa Clara*")
+  ) %>% 
+  tab_options(column_labels.font.weight = "bold") %>% 
+  opt_row_striping(row_striping = TRUE)
