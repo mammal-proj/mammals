@@ -21,33 +21,113 @@ isla_total <- df %>%
   filter(status == "Completo") %>%
   summarise(suma = sum(total, na.rm = TRUE), .groups = "drop")
 
+# Total adultos por isla, status completo
+isla_adultos <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_adultos, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Adultos", length(n())))
+
+# Total cachorros por isla, status completo
+isla_cachorros <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total_cachorros, na.rm = TRUE)) %>% 
+  mutate(edad = rep("Cachorros", length(n())))
+
+## Archipielago
+# para que un año sea consierado como valido tienen que estar presentes las 3 islas censadas
+
+# Total individuos por archipielago, status Completo
+archi_total <- df %>% group_by(year, isla) %>% 
+  filter(status == "Completo") %>% 
+  summarise(suma = sum(total, na.rm = TRUE), .groups = "drop") %>% 
+  filter(n() == 3)
 
 # Funcion R ---------------------------------------------------------------
 
 # Calculo Funcion R
-r_func <- isla_total %>% arrange(isla, year) %>%
-  group_by(isla) %>%
-  mutate(R = lead(log(suma / lag(suma))))
+r_func <- isla_total %>% arrange(isla, year) %>% 
+  group_by(isla) %>% 
+  mutate(N = lead(year - lag(year))) %>%
+  mutate(R = lead(log(suma / lag(suma))) / N)
+
+r_func_adultos <- isla_adultos %>% arrange(isla, year) %>% 
+  group_by(isla) %>% 
+  mutate(N = lead(year - lag(year))) %>%
+  mutate(R = lead(log(suma / lag(suma))) / N)
+
+r_func_cachorros <- isla_cachorros %>% arrange(isla, year) %>% 
+  group_by(isla) %>% 
+  mutate(N = lead(year - lag(year))) %>%
+  mutate(R = lead(log(suma / lag(suma))) / N)
+
+r_func_arch <- archi_total %>% arrange(year) %>% 
+  group_by(year) %>% 
+  summarise(suma = sum(suma, na.rm = TRUE)) %>% 
+  mutate(N = lead(year - lag(year))) %>%
+  mutate(R = lead(log(suma / lag(suma))) / N)
 
 
 # Graficos ----------------------------------------------------------------
 # Total
-ggplot(r_func) +
+ggplot(r_func) + 
   geom_line(aes(x = suma, y = R, colour = isla), size = 1) +
-  geom_point(aes(x = suma, y = R, colour = isla), size = 2) +
-  xlab("N") + ylab("Growth Rate") + labs(title = "Total de Individuos", subtitle = "Islas") +
+  geom_point(aes(x = suma, y = R, colour = isla), size = 2) + 
+  # geom_smooth(aes(x = suma, y = R), method = "lm", color = "darkgrey", se = FALSE) + 
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Función-R", subtitle = "Islas") + 
   theme_half_open(12) +
   background_grid(minor = "xy") +
-  theme(axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
         strip.background = element_blank(),
         strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
-                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
-                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)),
-        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5),
-        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5),
-        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1),
-        legend.position = "none") +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") +
-  scale_colour_viridis(discrete = TRUE, direction = -1) +
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+# Total Adultos
+ggplot(r_func_adultos) + 
+  geom_line(aes(x = suma, y = R, colour = isla), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = isla), size = 2) +  
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Función-R", subtitle = "Adultos") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
+  facet_wrap(.~ isla, nrow = 1)
+
+# Total Cachorros
+ggplot(r_func_cachorros) + 
+  geom_line(aes(x = suma, y = R, colour = isla), size = 1) +
+  geom_point(aes(x = suma, y = R, colour = isla), size = 2) + 
+  xlab("N") + ylab("Tasa de Crecimiento") + labs(title = "Función-R", subtitle = "Cachorros") + 
+  theme_half_open(12) +
+  background_grid(minor = "xy") +
+  theme(axis.title = element_text(size = 14), 
+        axis.text = element_text(size = 14), 
+        strip.background = element_blank(),
+        strip.text = element_textbox(size = 16, color = "white", fill = "black", box.color = "black",
+                                     halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+                                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)), 
+        plot.title = element_text(size = 20, vjust = 1.25, hjust = 0.5), 
+        plot.subtitle = element_text(size = 14, vjust = 1.25, hjust = 0.5), 
+        plot.caption = element_text(size = 14, vjust = 1.25, hjust = 1), 
+        legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "darkgrey") + 
+  scale_colour_viridis(discrete = TRUE, direction = -1) + 
   facet_wrap(.~ isla, nrow = 1)
